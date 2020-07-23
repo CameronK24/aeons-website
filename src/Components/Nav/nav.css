@@ -1,0 +1,76 @@
+.nav-bar {
+    width: 100vw;
+    height: 75px;
+    background-color: #404040;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-section {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-section h1 {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 30px;
+    margin-right: 30px;
+}
+
+.nav-area {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-area button {
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #6e6e6e;
+    border: none;
+    border-radius: 3px;
+}
+
+.auth-box h2 {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.auth-box {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auth-input {
+    width: 55%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* margin: 0 px */
+}
+
+.email-input, .pass-input {
+    display: flex;
+    font-size: 14px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.email-input p, .pass-input p {
+    margin-top: 8px;
+}
+
+.auth-btn {
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #7085b3;
+    border: none;
+    border-radius: 3px;
+}
