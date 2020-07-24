@@ -1,28 +1,35 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import Nav from './Components/Nav/Nav';
 import routes from './routes';
+import {connect} from 'react-redux';
+import {registerUser} from './redux/reducer';
 import './reset.css';
 import './App.css';
 
-function App() {
+class App extends Component {
 
-  const [register, setRegister] = useState(false);
-
-  return (
-    <div>
-      {register === false
-      ? <div>
-          <Nav setRegisterFn={setRegister} />
-          {routes}
-        </div>
-      : <div>
-          <button onClick={() => setRegister(false)} >return</button>
-          {routes}
-        </div>
-      }
-      
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        {this.props.register === false
+        ? <div>
+            <Nav />
+            {routes}
+          </div>
+        : <div>
+            {routes}
+          </div>
+        }
+        
+      </div>
+    );
+  }  
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    register: state.register
+  };
+}
+
+export default connect(mapStateToProps, {registerUser})(App);

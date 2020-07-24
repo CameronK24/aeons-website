@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {registerUser} from '../../redux/reducer';
 import logo from '../../images/aeons-logo.png'
 import './nav.css';
 
@@ -28,10 +30,16 @@ const Nav = props => {
                     </div>
                 </div>  
                 <Link to='/home'><button className='auth-btn'>Login</button></Link>                    
-                <Link to='/register'><button className='auth-btn' onClick={() => props.setRegisterFn(true)}>Register</button></Link>
+                <Link to='/register'><button className='auth-btn' onClick={() => props.registerUser(true)} >Register</button></Link>
             </section>
         </div>
     )
 }
 
-export default Nav;
+function mapStateToProps(state) {
+    return {
+        register: state.register
+    };
+}
+
+export default connect(mapStateToProps, {registerUser})(Nav);
