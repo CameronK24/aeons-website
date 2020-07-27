@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {registerUser} from '../../redux/reducer';
+import {registerUser, storeUserInfo} from '../../redux/reducer';
+import axios from 'axios';
 import logo from '../../images/aeons-logo.png'
 import './nav.css';
 
 const Nav = props => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const loginUser = () => {
+        const body = {email, password}
+        axios.post('/auth/login', body)
+            .then(res => {
+                const {user_id, email, name, avatar, portrait} = res.data;
+                props.storeUserInfo(user_id, email, name, avatar, portrait);
+                alert('Logged In');
+            })
+            .catch(err => {
+                setPassword('');
+                alert(err.response.request.response);
+            })
+    }
+
     return (
         <div className='nav-bar'>
             <section className='logo-section'>
@@ -22,14 +40,14 @@ const Nav = props => {
                 <div className='auth-input'>
                     <div className='email-input'>
                         <p>Email:</p>
-                        <input />
+                        <input value={email} onChange={e => setEmail(e.target.value)} />
                     </div>
                     <div className='pass-input'>
                         <p>Password:</p>
-                        <input />
+                        <input value={password} onChange={e => setPassword(e.target.value)} />
                     </div>
                 </div>  
-                <Link to='/home'><button className='auth-btn'>Login</button></Link>                    
+                <Link to='/home'><button className='auth-btn' onClick={loginUser}>Login</button></Link>                    
                 <Link to='/register'><button className='auth-btn' onClick={() => props.registerUser(true)} >Register</button></Link>
             </section>
         </div>
@@ -38,8 +56,13 @@ const Nav = props => {
 
 function mapStateToProps(state) {
     return {
+        userId: state.userId,
+        email: state.email,
+        characterName: state.characterName,
+        avatar: state.avatar,
+        portrait: state.portrait,
         register: state.register
     };
 }
 
-export default connect(mapStateToProps, {registerUser})(Nav);
+export default connect(mapStateToProps, {registerUser, storeUserInfo})(Nav);

@@ -35,6 +35,11 @@
     font-size: 20px;
 }
 
+.password-check {
+    color: red;
+    text-shadow: 1px 1px 1px #000000;
+}
+
 .register-btns {
     width: 80%;
     display: flex;

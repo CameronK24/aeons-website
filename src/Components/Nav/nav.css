@@ -66,3 +66,7 @@
 .email-input p, .pass-input p {
     margin-top: 8px;
 }
+
+.auth-btn {
+    font-family: 'Kaushan Script', cursive;
+}
