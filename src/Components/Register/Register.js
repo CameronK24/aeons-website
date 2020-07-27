@@ -9,7 +9,11 @@ const Register = props => {
         <div className='register-box'>
             <h1>Register</h1>
             <section className='character-auth'>
-                <p>Character Name:</p>
+                <p>Character First:</p>
+                <input />
+            </section>
+            <section className='character-auth'>
+                <p>Character Last:</p>
                 <input />
             </section>
             <section className='email-auth'>
@@ -26,7 +30,7 @@ const Register = props => {
             </section>
             <section className='register-btns'>
                 <Link to='/'><button onClick={() => props.registerUser(false)} >Cancel</button></Link>
-                <input type='submit' value='Register' disabled={true} />
+                <button className='register' disabled={true} >Register</button>
             </section>
         </div>
     )
