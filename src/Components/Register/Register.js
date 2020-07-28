@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {registerUser} from '../../redux/reducer';
+import {registerUser, storeUserInfo} from '../../redux/reducer';
 import './register.css';
 
 const Register = props => {
@@ -32,6 +32,19 @@ const Register = props => {
             setCheckPasswords('Passwords do not match');
         }
     }, [verifyPassword]);
+
+    const loginUser = () => {
+        const body = {characterFirst, characterLast, email, password}
+        axios.post('/auth/register', body)
+            .then(res => {
+                const {user_id, email, name, avatar, portrait} = res.data;
+                props.storeUserInfo(user_id, email, name, avatar, portrait);
+                alert('Thank you for registering. Now logging in.');
+            })
+            .catch(err => {
+                alert(err.response.request.response);
+            })
+    }
 
     return (
         <div className='register-box'>
@@ -67,8 +80,13 @@ const Register = props => {
 
 function mapStateToProps(state) {
     return {
+        userId: state.userId,
+        email: state.email,
+        characterName: state.characterName,
+        avatar: state.avatar,
+        portrait: state.portrait,
         register: state.register
     };
 }
 
-export default connect(mapStateToProps, {registerUser})(Register);
+export default connect(mapStateToProps, {registerUser, storeUserInfo})(Register);
