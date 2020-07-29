@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Nav from './Components/Nav/Nav';
 import routes from './routes';
 import {connect} from 'react-redux';
-import {registerUser} from './redux/reducer';
 import './reset.css';
 import './App.css';
 
@@ -11,10 +10,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.props.register === false
-        ? <div>
+        {this.props.auth.register === false
+        ? <div className='main-view'>
             <Nav />
-            {routes}
+            <div className='page-view'>
+              {routes}
+            </div>
           </div>
         : <div>
             {routes}
@@ -28,8 +29,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    register: state.register
+    auth: state.auth
   };
 }
 
-export default connect(mapStateToProps, {registerUser})(App);
+export default connect(mapStateToProps)(App);

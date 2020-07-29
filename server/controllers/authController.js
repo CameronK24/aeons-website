@@ -12,7 +12,7 @@ module.exports = {
                 return response.data.Results;
             })
             .catch(err => console.log(err));
-        console.log(character);
+        // console.log(character);
         let characterInfo
         
         if (character[0]) {
@@ -26,7 +26,7 @@ module.exports = {
             return res.status(409).send('Character not found. Please check your spelling and try again. Thank you.');
         }
         if (characterInfo.FreeCompanyId !== fcId) {
-            console.log(characterInfo.FreeCompanyId, fcId);
+            // console.log(characterInfo.FreeCompanyId, fcId);
             return res.status(409).send('You are not apart of the Order of Bahamut Free Company. If this is an error please contact Celestine Spiritfire on Discord or in game.');
         }
         const {Avatar, Name, Portrait} = characterInfo
@@ -37,6 +37,12 @@ module.exports = {
         const existingUser = results[0];
         if (existingUser) {
             return res.status(401).send(`${Name} has already registered on the website. If you are having trouble logging in or registering please contact Celestine Spiritfire on Discord or in game.`);
+        }
+
+        const emailResults = await db.get_user_by_email([email]);
+        const emailCheck = emailResults[0];
+        if (emailCheck) {
+            return res.status(401).send('This email is already in use. Please use a different email. If you have any issues please contact Celestine Spiritfire on Discord or in game. Thank you.');
         }
 
         const salt = bcrypt.genSaltSync(10);

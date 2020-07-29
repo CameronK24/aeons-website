@@ -16,3 +16,17 @@ button {
   box-shadow: 0px 0px 3px #000000;
   text-shadow: 1px 1px 1px #000000;
 }
+
+.main-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-view {
+  margin: 100px 150px;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
