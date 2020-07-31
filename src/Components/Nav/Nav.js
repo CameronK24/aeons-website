@@ -53,7 +53,7 @@ const Nav = props => {
                             <div className='auth-input'>
                                 <div className='email-input'>
                                     <p>Email:</p>
-                                    <input value={email} onChange={e => setEmail(e.target.value)} />
+                                    <input type='email' value={email} onChange={e => setEmail(e.target.value)} />
                                 </div>
                                 <div className='pass-input'>
                                     <p>Password:</p>

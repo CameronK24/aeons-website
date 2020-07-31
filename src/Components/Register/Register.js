@@ -69,7 +69,7 @@ const Register = props => {
                         </section>
                         <section className='email-auth'>
                             <p>Email:</p>
-                            <input value={email} onChange={e => setEmail(e.target.value)} />
+                            <input type='email' value={email} onChange={e => setEmail(e.target.value)} />
                         </section>
                         <section className='pass-auth'>
                             <p>Password:</p>

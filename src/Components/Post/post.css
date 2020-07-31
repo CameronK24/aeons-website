@@ -1,0 +1,50 @@
+.create-post-box {
+    width: 40%;
+    height: 700px;
+    background-color: #608aa7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 15px 50%;
+    transform: translate(-50%);
+    border-radius: 10px;
+    box-shadow: 0 0 40px #000000;
+}
+
+.title-box, .long-text-box {
+    width: 80%;
+}
+
+.image-preview {
+    width: 70%;
+    height: 50%;
+    background-color: #3f3f3f;
+}
+
+.drop-box {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px dashed #ffffff;
+}
+
+.drop-input {
+    width: 25%;
+    height: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.long-text-box {
+    height: 100px;
+}
+
+.create-post-btn {
+    position: fixed;
+    left: 575px;
+    top: 500px;
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+}
