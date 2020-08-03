@@ -26,14 +26,15 @@
     display: flex;
     justify-content: center;
     cursor: pointer;
-    border: 2px dashed #ffffff;
+    
 }
 
 .drop-input {
     width: 25%;
     height: auto;
     text-align: center;
-    padding: 20px;
+    padding: 20px 100px;
+    border: 2px dashed #ffffff;
 }
 
 .long-text-box {

@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const massive = require('massive');
 const authCtrl = require('./controllers/authController');
+const postCtrl = require('./controllers/postController');
 const aws = require('aws-sdk');
 
 const {S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
@@ -23,6 +24,7 @@ massive({
 
 app.post('/auth/register', authCtrl.register);
 app.post('/auth/login', authCtrl.login);
+app.post('/api/posts', postCtrl.createPost);
 app.get('/api/sign-s3', (req, res) => {
     aws.config = {
         region: 'us-west-1',

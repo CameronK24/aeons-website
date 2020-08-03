@@ -3,6 +3,8 @@ import axios from 'axios';
 import {useDropzone} from 'react-dropzone';
 import {v4 as randomString} from 'uuid';
 import {RingLoader} from 'react-spinners';
+import {connect} from 'react-redux';
+import {Switch, Redirect} from 'react-router-dom';
 import './post.css';
 
 const Post = props => {
@@ -56,27 +58,52 @@ const Post = props => {
             })
     }
 
+    const createPost = (userId) => {
+        const body = {userId, title, image, content}
+
+        axios.post('/api/posts', body)
+            .then(res => {
+                setRedirect(true);
+            })
+            .catch(err => alert(err));
+    }
+
     const {getRootProps, getInputProps} = useDropzone({onDrop});
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState('https://via.placeholder.com/400/000000/FFFFFF/?text=Preview');
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
     const [isUploading, setIsUploading] = useState(false);
+    const [redirect, setRedirect] = useState(false);
 
     return (
-        <div className='create-post-box'>
-            <input className='title-box' placeholder='Title of post. 100 character limit' maxLength='100' />
-            <img className='image-preview' src={image} alt='' />
-            <div className='drop-box' {...getRootProps()}>
-                {isUploading
-                ? <RingLoader />
-                : <div className='drop-input'>
-                    <input {...getInputProps()}/>
-                    <p>Drag 'n' drop or click to upload an image.</p>
+        <Switch>
+            {redirect !== true
+            ? <div className='create-post-box'>
+                <input className='title-box' placeholder='Title of post. 100 character limit' maxLength='100' value={title} onChange={e => setTitle(e.target.value)} />
+                <img className='image-preview' src={image} alt='' />
+                <div className='drop-box' {...getRootProps()}>
+                    {isUploading
+                    ? <RingLoader />
+                    : <div className='drop-input'>
+                        <input {...getInputProps()}/>
+                        <p>Drag 'n' drop or click to upload an image.</p>
+                    </div>
+                    }
                 </div>
-                }
+                <textarea className='long-text-box' placeholder='Post text. 400 character limit' maxLength='400' value={content} onChange={e => setContent(e.target.value)} ></textarea>
+                <button className='create-post-btn' onClick={() => createPost(props.user.userId)}>Post</button>
             </div>
-            <textarea className='long-text-box' placeholder='Post text. 400 character limit' maxLength='400'></textarea>
-            <button className='create-post-btn'>Post</button>
-        </div>
+            : <Redirect to='/home'/>
+            }
+            
+        </Switch>
     )
 }
 
-export default Post;
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    };
+}
+
+export default connect(mapStateToProps)(Post);
