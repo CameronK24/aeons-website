@@ -16,6 +16,7 @@
 }
 
 .nav-bar-2 {
+    z-index: 10;
     width: 100vw;
     height: 75px;
     background-color: #368dbe;
@@ -123,7 +124,7 @@
 }
 
 .character-small-profile img {
-    border-radius: 50%;
+    border-radius: 30%;
     box-shadow:  0 0 20px #000000;
 }
 

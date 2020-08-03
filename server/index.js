@@ -25,6 +25,7 @@ massive({
 app.post('/auth/register', authCtrl.register);
 app.post('/auth/login', authCtrl.login);
 app.post('/api/posts', postCtrl.createPost);
+app.get('/api/posts', postCtrl.getAllPosts);
 app.get('/api/sign-s3', (req, res) => {
     aws.config = {
         region: 'us-west-1',

@@ -17,7 +17,7 @@
 }
 
 .image-preview {
-    width: 70%;
+    width: auto;
     height: 50%;
     background-color: #3f3f3f;
 }
