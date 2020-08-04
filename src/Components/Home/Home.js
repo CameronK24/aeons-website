@@ -21,6 +21,7 @@ const Home = () => {
     useEffect(() => {
         setMappedPosts(posts.map((post, index) => (
             <div className='post-box' key={index}>
+                <time className='timestamp'>{post.post_date}</time>
                 <section className='author-title'>
                     <div className='author-box'>
                         <img src={post.avatar} alt='user avatar' />
@@ -40,7 +41,11 @@ const Home = () => {
             ? <div className='mapped-posts'>
                 {mappedPosts}
             </div>
-            : <RingLoader className='loader' />
+            : <RingLoader 
+                className='loader' 
+                size={300}
+                color={'#ffffff'}
+                css={'position: absolute; left: 47%; top: 50%; transform: translate(-50%, -50%);'}/>
             }
             
         </div>

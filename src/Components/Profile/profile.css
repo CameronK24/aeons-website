@@ -1,0 +1,35 @@
+.profile-view {
+    z-index: 5;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-box {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40%;
+    height: 75vh;
+    background-color: #4e91b1ee;
+    border-radius: 100px;
+    box-shadow: 0 0 40px #000000;
+}
+
+.profile-box h1 {
+    font-size: 40px;
+    font-family: 'Kaushan Script', cursive;
+    text-shadow: 1px 1px 1px #000000;
+    letter-spacing: 5px;
+}
+
+.profile-box img {
+    max-width: 95%;
+    max-height: 90%;
+    object-fit: scale-down;
+    border-radius: 100px;
+    box-shadow: 0 0 5px #000000;
+}

@@ -15,8 +15,7 @@ export default (
         <Route component={Register} path='/register' />
         <Route component={Events} path='/events' />
         <Route component={Members} path='/members' />
-        <Route component={Profile} path='/profile/:profileid' />
-        <Route component={Post} path='/post/:postid' />
+        <Route component={Profile} path='/profile/:id' />
         <Route component={Post} path='/post/new-post' />
         <Route component={Events} path='/events/new-event' />
     </Switch>

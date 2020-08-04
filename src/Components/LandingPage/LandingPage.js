@@ -1,9 +1,25 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const LandingPage = () => {
+const LandingPage = props => {
     return (
-        <div>LandingPage</div>
+        <div>
+            {props.auth.loggedIn !== true
+            ? 
+                <div>
+                    Landing Page
+                </div>
+            : <Redirect to='/home' />
+            }
+        </div>
     )
 }
 
-export default LandingPage;
+function mapStateToProps(state) {
+    return {
+        auth: state.auth,
+    };
+}
+
+export default connect(mapStateToProps)(LandingPage);

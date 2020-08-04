@@ -83,7 +83,7 @@ const Post = props => {
                 <img className='image-preview' src={image} alt='' />
                 <div className='drop-box' {...getRootProps()}>
                     {isUploading
-                    ? <RingLoader />
+                    ? <RingLoader color={'#ffffff'} />
                     : <div className='drop-input'>
                         <input {...getInputProps()}/>
                         <p>Drag 'n' drop or click to upload an image.</p>

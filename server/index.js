@@ -3,6 +3,7 @@ const express = require('express');
 const massive = require('massive');
 const authCtrl = require('./controllers/authController');
 const postCtrl = require('./controllers/postController');
+const userCtrl = require('./controllers/profileController');
 const aws = require('aws-sdk');
 
 const {S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
@@ -26,6 +27,8 @@ app.post('/auth/register', authCtrl.register);
 app.post('/auth/login', authCtrl.login);
 app.post('/api/posts', postCtrl.createPost);
 app.get('/api/posts', postCtrl.getAllPosts);
+app.get('/api/users', userCtrl.getAllMembers);
+app.get('/api/users/:id', userCtrl.getSingleMember);
 app.get('/api/sign-s3', (req, res) => {
     aws.config = {
         region: 'us-west-1',

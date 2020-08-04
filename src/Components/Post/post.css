@@ -17,9 +17,10 @@
 }
 
 .image-preview {
-    width: auto;
+    width: 90%;
     height: 50%;
-    background-color: #3f3f3f;
+    object-fit: scale-down;
+    /* background-color: #3f3f3f; */
 }
 
 .drop-box {
