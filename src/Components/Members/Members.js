@@ -12,7 +12,6 @@ const Members = () => {
     useEffect(() => {
         axios.get('/api/users')
             .then(res => {
-                console.log(res.data);
                 setUsers(res.data);
                 setLoadingUsers(false);
             })
@@ -21,8 +20,8 @@ const Members = () => {
 
     useEffect(() => {
         setMappedUsers(users.map((user, index) => (
-            <Link to={{pathname: `/profile/${user.user_id}`}}>
-                <div className='user-box' key={index}>
+            <Link to={{pathname: `/profile/${user.user_id}`}} key={index}>
+                <div className='user-box' >
                     <section className='user-info'>
                         <img src={user.avatar} alt='user avatar' />
                         <h1>{user.name} </h1>

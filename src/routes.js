@@ -18,5 +18,6 @@ export default (
         <Route component={Profile} path='/profile/:id' />
         <Route component={Post} path='/post/new-post' />
         <Route component={Events} path='/events/new-event' />
+        <Route component={Events} path='/events/:index/:id' />
     </Switch>
 );
