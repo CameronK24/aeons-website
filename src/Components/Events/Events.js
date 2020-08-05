@@ -1,11 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import './events.css';
 
 const Events = props => {
     
+    const [title, setTitle] = useState('');
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
+    const [tz, setTZ] = useState('');
+    const [details, setDetails] = useState('');
+    const [currentDate, setCurrentDate] = useState('');
 
     return (
-        <div>
+        <div className='events-page-view'>
             {props.location.pathname === '/events/new-event'
             ?
                 <div className='new-event-page'>
@@ -19,7 +25,9 @@ const Events = props => {
                     </section>
                     <section className='time-section'>
                         <h1>Event Time:</h1>
-                        <input type='time' />
+                        <input className='time' type='time' />
+                        <h1>Time Zone:</h1>
+                        <input className='time-zone' placeholder='Example: PST' />
                     </section>
                     <section className='details-section'>
                         <h1>Event Details:</h1>
