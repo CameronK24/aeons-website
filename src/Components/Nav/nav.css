@@ -147,3 +147,21 @@
     width: 100px;
     height: 100px;
 }
+
+.character-small-profile a:hover {
+    text-decoration: underline;
+}
+
+.new-content a {
+    transition: .1s;
+}
+  
+.new-content a:hover {
+    border-bottom: 2px solid #ffffff;
+}
+  
+.new-content a:active {
+    color: #8ca8b8;
+    border-color: #8ca8b8;
+}
+  

@@ -16,6 +16,25 @@ button {
   border-radius: 3px;
   box-shadow: 0px 0px 3px #000000;
   text-shadow: 1px 1px 1px #000000;
+  transition: .25s;
+}
+
+button:hover {
+  background-color: #1e839c;
+}
+
+button:active {
+  background-color: #135566;
+}
+
+button:disabled {
+  font-size: 20px;
+  color: #949494;
+  background-color: #186579;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px #000000;
+  text-shadow: 1px 1px 1px #000000;
 }
 
 .main-view {
