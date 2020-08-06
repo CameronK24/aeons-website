@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {RingLoader} from 'react-spinners';
+import {Link} from 'react-router-dom';
 import './home.css';
 
 const Home = () => {
@@ -23,10 +24,10 @@ const Home = () => {
             <div className='post-box' key={index}>
                 <time className='timestamp'>{post.post_date}</time>
                 <section className='author-title'>
-                    <div className='author-box'>
+                    <Link to={`/profile/${post.user_id}`}><div className='author-box'>
                         <img src={post.avatar} alt='user avatar' />
                         <h1>{post.name} </h1>
-                    </div>
+                    </div></Link>
                     <h2>{post.post_title}</h2>
                 </section>
                 <img className='content-image' src={post.post_image} alt='post picture' />

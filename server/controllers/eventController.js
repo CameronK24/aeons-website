@@ -19,5 +19,17 @@ module.exports = {
                 res.status(200).send(events);
             })
             .catch(err => res.status(500).send(err));
+    },
+
+    getSingleEvent: async (req, res) => {
+        const {id} = req.params;
+
+        const db = req.app.get('db');
+
+        await db.get_single_event([id])
+            .then(event => {
+                res.status(200).send(event);
+            })
+            .catch(err => res.status(500).send(err));
     }
 }

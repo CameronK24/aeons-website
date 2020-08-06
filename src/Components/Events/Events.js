@@ -31,6 +31,7 @@ const Events = props => {
     const [tz, setTZ] = useState('');
     const [details, setDetails] = useState('');
     const [currentDate, setCurrentDate] = useState('');
+    const [currentEvent, setCurrentEvent] = useState(0);
     const [redirect, setRedirect] = useState(false);
     const [allowCreate, setAllowCreate] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
@@ -52,12 +53,14 @@ const Events = props => {
                 })
                 .catch(err => alert(err));
         }
-        else {
-            const {index, id} = props.match.params;
-            console.log(index, id);
-        }
         
     }, [props.location.pathname]);
+
+    // useEffect(() => {
+    //     const {index} = props.match.params;
+    //     setCurrentEvent(index);
+    //     console.log(index);
+    // }, [props.match.params]);
 
     useEffect(() => {
         setRedirect(false);
@@ -74,7 +77,7 @@ const Events = props => {
             const dateIndex = event.event_date.indexOf('T');
             const eventDate = event.event_date.slice(0, dateIndex);
             return (
-                <Link to={`/events/${index}/${event.event_id}`} key={index}>
+                <Link to={`/event/${event.event_id}`} key={index}  >
                     <div className='event-box'>
                         <h1>{event.event_title}</h1>
                         <section>
@@ -122,17 +125,8 @@ const Events = props => {
                             }
                         </div>
                     : 
-                        <div className='events-page'>
-                            {props.location.pathname === '/events'
-                            ? 
-                                <div className='events-page'>
-                                    {mappedEvents}
-                                </div>
-                            :
-                                <div>
-                                    <h1>Event:</h1>
-                                </div>
-                            }
+                        <div className='events-page'>                          
+                            {mappedEvents}
                         </div>
                     }
                 </div>

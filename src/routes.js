@@ -7,6 +7,7 @@ import LandingPage from './Components/LandingPage/LandingPage';
 import Profile from './Components/Profile/Profile';
 import Post from './Components/Post/Post';
 import Members from './Components/Members/Members';
+import SingleEvent from './Components/SingleEvent/SingleEvent';
 
 export default (
     <Switch>
@@ -18,6 +19,6 @@ export default (
         <Route component={Profile} path='/profile/:id' />
         <Route component={Post} path='/post/new-post' />
         <Route component={Events} path='/events/new-event' />
-        <Route component={Events} path='/events/:index/:id' />
+        <Route component={SingleEvent} path='/event/:id' />
     </Switch>
 );

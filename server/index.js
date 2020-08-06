@@ -32,6 +32,7 @@ app.get('/api/users', userCtrl.getAllMembers);
 app.get('/api/users/:id', userCtrl.getSingleMember);
 app.post('/api/events', eventCtrl.createEvent);
 app.get('/api/events', eventCtrl.getAllEvents);
+app.get('/api/events/:id', eventCtrl.getSingleEvent);
 app.get('/api/sign-s3', (req, res) => {
     aws.config = {
         region: 'us-west-1',
