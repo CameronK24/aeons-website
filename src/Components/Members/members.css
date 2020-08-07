@@ -21,6 +21,7 @@
     box-shadow: 0 0 30px #000000;
     display: flex;
     justify-content: center;
+    transition: 1s;
 }
 
 .user-info {
@@ -41,4 +42,13 @@
     font-family: 'Kaushan Script', cursive;
     font-size: 40px;
     text-shadow: 1px 1px 1px #000000;
+}
+
+.user-box:hover {
+    transform: scale(1.1);
+    background-color: #5faed3ee;
+}
+
+.user-box:active {
+    background-color: #437e99ee;
 }

@@ -33,8 +33,6 @@
 .author-title {
     width: 100%;
     display: flex;
-    /* align-items: center; */
-    /* margin-top: 10px; */
 }
 
 .author-title h2 {

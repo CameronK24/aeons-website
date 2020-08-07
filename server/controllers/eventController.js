@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 module.exports = {
     createEvent: async (req, res) => {
         const {userId, title, date, time, tz, details} = req.body;
@@ -31,5 +33,18 @@ module.exports = {
                 res.status(200).send(event);
             })
             .catch(err => res.status(500).send(err));
+    },
+
+    editEvent: async (req, res) => {
+        const {event_id, event_title, event_date, event_time, event_timezone, event_details} = req.body;
+
+        const db = req.app.get('db');
+
+        await db.edit_event([event_id, event_title, event_date, event_time, event_timezone, event_details])
+            .then(() => {
+                return res.sendStatus(200);
+            })
+            .catch(err => res.status(500).send(err));
+
     }
 }

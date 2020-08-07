@@ -76,15 +76,17 @@
 
 .events-page {
     display: flex;
-    width: 70vw;
+    width: 80vw;
     height: auto;
+    margin-left: 5vw;
     flex-wrap: wrap;
 }
 
 .event-box {
     background-color: #4e91b1ee;
     margin-top: 50px;
-    width: 90%;
+    margin-left: 20px;
+    width: 150px;
     height: 100px;
     display: flex;
     flex-direction: column;

@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {RingLoader} from 'react-spinners';
+import {connect} from 'react-redux';
 import './singleEvent.css';
 
 const SingleEvent = props => {
@@ -35,15 +37,15 @@ const SingleEvent = props => {
     }, [event]);
 
     return (
-        <div>
+        <div className='single-event-view'>
             {isLoading !== true
             ? 
                 <div className='single-event-box'>
                     <section className='creator-title'>
-                        <div className='creator-box'>
+                        <Link to={`/profile/${creator.user_id}`}><div className='creator-box'>
                             <img src={creator.avatar} alt='event creator' />
                             <h1>{creator.name}</h1>
-                        </div>
+                        </div></Link>
                         <h2>{event.event_title}</h2>
                     </section>
                     <section className='event-time'>
@@ -56,14 +58,28 @@ const SingleEvent = props => {
                         <h3>Event Details:</h3>
                         <p>{event.event_details}</p>
                     </section>
+                    {creator.user_id === +props.user.userId
+                    ?
+                        <section className='edit-buttons'>
+                            <button>Edit Event</button>
+                            <button>Delete Event</button>
+                        </section>
+                    : null
+                    }
                 </div>
             : <RingLoader 
                 size={300}
                 color={'#ffffff'} 
-                css={'margin-left: 46%; margin-top: 25%; transform: translate(-50%, -50%)'}/>
+                css={'position: absolute; left: 47%; top: 50%; transform: translate(-50%, -50%);'}/>
             }
         </div>
     )
 }
 
-export default SingleEvent;
+function mapStateToProps(state) {
+    return {
+        user: state.user
+    };
+}
+
+export default connect(mapStateToProps)(SingleEvent);
