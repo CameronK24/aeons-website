@@ -6,6 +6,7 @@ const postCtrl = require('./controllers/postController');
 const userCtrl = require('./controllers/profileController');
 const eventCtrl = require('./controllers/eventController');
 const session = require('express-session');
+const path = require('path');
 const aws = require('aws-sdk');
 
 const {S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
@@ -72,6 +73,11 @@ app.get('/api/sign-s3', (req, res) => {
 
         return res.send(returnData);
     })
+});
+
+app.use(express.static(__dirname + '/../build'));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '../build/index.html'));
 });
 
 app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`));
