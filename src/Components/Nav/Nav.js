@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {registerUser, loginUser, notRegisteringUser, logoutUser} from '../../redux/authReducer';
@@ -8,6 +8,29 @@ import logo from '../../images/aeons-logo.png'
 import './nav.css';
 
 const Nav = props => {
+
+    useEffect(() => {
+        axios.get('/api/auth/me')
+            .then(res => {
+                console.log(res.data);
+                if (res.data === 'OK') {
+
+                }
+                else {
+                    const {user_id, email, name, avatar, portrait} = res.data;
+                    props.loginUser();      
+                    props.notRegisteringUser(); 
+                    props.storeUserInfo(user_id, email, name, avatar, portrait);
+                    setEmail('');
+                    setPassword('');
+                }             
+            })
+            .catch(err => {
+                setPassword('');
+                alert(err.response.request.response);
+            })
+    }, [])
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -30,8 +53,12 @@ const Nav = props => {
     }
 
     const logoutUser = () => {
-        props.logoutUser();      
-        props.notRegisteringUser();
+        axios.post('/auth/logout')
+            .then(() => {
+                props.logoutUser();      
+                props.notRegisteringUser();
+            })
+            .catch(err => console.log(err));
     }
 
     return (

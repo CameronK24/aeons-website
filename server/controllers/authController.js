@@ -12,11 +12,12 @@ module.exports = {
                 return response.data.Results;
             })
             .catch(err => console.log(err));
-        // console.log(character);
+
+        const characterId = character[0].ID;
         let characterInfo
         
         if (character[0]) {
-            characterInfo = await axios.get(`https://xivapi.com/character/${character[0].ID}`)
+            characterInfo = await axios.get(`https://xivapi.com/character/${characterId}`)
             .then(info => {
                 return info.data.Character;
             })
@@ -26,11 +27,9 @@ module.exports = {
             return res.status(409).send('Character not found. Please check your spelling and try again. Thank you.');
         }
         if (characterInfo.FreeCompanyId !== fcId) {
-            // console.log(characterInfo.FreeCompanyId, fcId);
             return res.status(409).send('You are not apart of the Order of Bahamut Free Company. If this is an error please contact Celestine Spiritfire on Discord or in game.');
         }
-        const {Avatar, Name, Portrait} = characterInfo
-        // console.log(Avatar, Name, Portrait);
+        const {Avatar, Name, Portrait, ID} = characterInfo
 
         const db = req.app.get('db');
         const results = await db.get_user_by_name([Name]);
@@ -47,9 +46,10 @@ module.exports = {
 
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(password, salt);
-        const registerUser = await db.register_user([email, hash, Name, Avatar, Portrait]);
+        const registerUser = await db.register_user([email, hash, Name, Avatar, Portrait, ID]);
         const user = registerUser[0];
-        
+
+        req.session.userId = user.user_id;
         return res.status(200).send(user);
     },
     login: async (req, res) => {
@@ -64,6 +64,27 @@ module.exports = {
         if (!isAuthenticated) {
             return res.status(403).send('Incorrect password');
         }
+        req.session.userId = existingUser.user_id;
         return res.status(200).send(existingUser);
+    },
+
+    loggedInUser: (req, res) => {
+        const userId = req.session.userId;
+        const db = req.app.get('db');
+        if (userId === undefined) {
+            return res.sendStatus(200);
+        }
+        else {
+            db.get_current_user([userId])
+            .then(user => {
+                res.status(200).send(user[0]);
+            })
+            .catch(err => res.status(500).send(err));
+        }      
+    },
+
+    logout: (req, res) => {
+        req.session.destroy();
+        return res.sendStatus(200);
     }
 }

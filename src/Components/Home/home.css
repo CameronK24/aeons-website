@@ -66,6 +66,10 @@
     font-weight: 600;
 }
 
+.author-box:hover {
+    text-decoration: underline;
+}
+
 .content-image {
     width: 90%;
     height: 250px;
