@@ -43,10 +43,6 @@
 }
 
 .create-post-btn {
-    position: fixed;
-    left: 575px;
-    top: 500px;
-    width: 200px;
-    height: 200px;
-    font-size: 50px;
+    width: 40%;
+    font-size: 20px;
 }

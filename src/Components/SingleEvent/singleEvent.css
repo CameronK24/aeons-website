@@ -31,6 +31,10 @@
     align-items: center;
 }
 
+.creator-box:hover {
+    text-decoration: underline;
+}
+
 .creator-box img {
     width: 90px;
     height: auto;
