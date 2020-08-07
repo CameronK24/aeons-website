@@ -50,7 +50,6 @@
 .creator-title h2 {
     margin-left: 10%;
     font-size: 40px;
-    word-break: break-all;
 }
 
 .event-time {
@@ -78,7 +77,6 @@
 .event-details-box p {
     margin-top: 20px;
     margin-bottom: 20px;
-    word-break: break-all;
 }
 
 .edit-buttons {

@@ -19,7 +19,7 @@ const Nav = props => {
                 props.loginUser();      
                 props.notRegisteringUser(); 
                 props.storeUserInfo(user_id, email, name, avatar, portrait);
-                alert('Logged In'); 
+                // alert('Logged In'); 
                 setEmail('');
                 setPassword('');                
             })
@@ -39,48 +39,46 @@ const Nav = props => {
             {props.auth.loggedIn === false
                 ? (
                     <div className='nav-bar-1'>
-                        <section className='logo-section'>
-                            <img src={logo} alt='logo' />
-                            <h1>Order of Bahamut</h1>
-                        </section>
-                        <section className='nav-area'>
-                            <Link to='/'><button>Landing Page</button></Link>
-                            <Link to='/home'><button>Home</button></Link>
-                            <Link to='/members'><button>Members</button></Link>
-                            <Link to='/events'><button>Events</button></Link>
-                        </section>
-                        <section className='auth-box'>   
-                            <div className='auth-input'>
-                                <div className='email-input'>
-                                    <p>Email:</p>
-                                    <input type='email' value={email} onChange={e => setEmail(e.target.value)} />
-                                </div>
-                                <div className='pass-input'>
-                                    <p>Password:</p>
-                                    <input type='password' value={password} onChange={e => setPassword(e.target.value)} />
-                                </div>
-                            </div>  
-                            <button className='auth-btn' onClick={loginUser}>Login</button>                
-                            <Link to='/register'><button className='auth-btn' onClick={() => props.registerUser()} >Register</button></Link>
-                        </section>
+                        <div className='nav-bar-content'>
+                            <section className='logo-section'>
+                                <img src={logo} alt='logo' />
+                                <h1>Order of Bahamut</h1>
+                            </section>
+                            <section className='auth-box'>   
+                                <div className='auth-input'>
+                                    <div className='email-input'>
+                                        <p>Email:</p>
+                                        <input type='email' value={email} onChange={e => setEmail(e.target.value)} />
+                                    </div>
+                                    <div className='pass-input'>
+                                        <p>Password:</p>
+                                        <input type='password' value={password} onChange={e => setPassword(e.target.value)} />
+                                    </div>
+                                </div>  
+                                <button className='auth-btn' onClick={loginUser}>Login</button>                
+                                <Link to='/register'><button className='auth-btn' onClick={() => props.registerUser()} >Register</button></Link>
+                            </section>
+                        </div>
                     </div>
                 )
                 : (
                     <div>
-                        <section className='nav-bar-2'>
-                            <section className='logo-section logo-section-2'>
-                                <img src={logo} alt='logo' />
-                                <h1>Order of Bahamut</h1>
+                        <div className='nav-bar-2'>
+                            <section className='nav-bar-content'>
+                                <section className='logo-section logo-section-2'>
+                                    <img src={logo} alt='logo' />
+                                    <h1>Order of Bahamut</h1>
+                                </section>
+                                <section className='nav-area nav-area-2'>
+                                    <Link to='/home'><button className='nav-btn'>Home</button></Link>
+                                    <Link to='/members'><button className='nav-btn'>Members</button></Link>
+                                    <Link to='/events'><button className='nav-btn'>Events</button></Link>
+                                </section>
+                                <section className='logout-section'>
+                                    <Link to='/'><button className='auth-btn' onClick={logoutUser}>Logout</button></Link>
+                                </section>
                             </section>
-                            <section className='nav-area nav-area-2'>
-                                <Link to='/home'><button>Home</button></Link>
-                                <Link to='/members'><button>Members</button></Link>
-                                <Link to='/events'><button>Events</button></Link>
-                            </section>
-                            <section className='logout-section'>
-                                <Link to='/'><button className='auth-btn' onClick={logoutUser}>Logout</button></Link>
-                            </section>
-                        </section>
+                        </div>
                         <section className='side-profile'>
                             <section className='character-small-profile'>
                                 <Link to={`/profile/${props.user.userId}`}><img src={props.user.avatar} alt='avatar' />

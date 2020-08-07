@@ -36,15 +36,27 @@ module.exports = {
     },
 
     editEvent: async (req, res) => {
-        const {event_id, event_title, event_date, event_time, event_timezone, event_details} = req.body;
+        const {eventId, title, date, time, tz, details} = req.body;
 
         const db = req.app.get('db');
 
-        await db.edit_event([event_id, event_title, event_date, event_time, event_timezone, event_details])
+        await db.edit_event([eventId, title, date, time, tz, details])
             .then(() => {
                 return res.sendStatus(200);
             })
             .catch(err => res.status(500).send(err));
 
+    },
+
+    deleteEvent: async (req, res) => {
+        const {id} = req.params;
+        console.log(id);
+        const db = req.app.get('db');
+
+        await db.delete_event([id])
+            .then(() => {
+                return res.sendStatus(200);
+            })
+            .catch(err => res.status(500).send(err));
     }
 }

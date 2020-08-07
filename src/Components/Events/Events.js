@@ -8,7 +8,6 @@ import './events.css';
 const Events = props => {
 
     const createEvent = (userId) => {
-        console.log(userId, title, date, time, tz, details);
         const body = {userId, title, date, time, tz, details};
 
         axios.post('/api/events', body)
@@ -31,7 +30,6 @@ const Events = props => {
     const [tz, setTZ] = useState('');
     const [details, setDetails] = useState('');
     const [currentDate, setCurrentDate] = useState('');
-    const [currentEvent, setCurrentEvent] = useState(0);
     const [redirect, setRedirect] = useState(false);
     const [allowCreate, setAllowCreate] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
@@ -55,12 +53,6 @@ const Events = props => {
         }
         
     }, [props.location.pathname]);
-
-    // useEffect(() => {
-    //     const {index} = props.match.params;
-    //     setCurrentEvent(index);
-    //     console.log(index);
-    // }, [props.match.params]);
 
     useEffect(() => {
         setRedirect(false);

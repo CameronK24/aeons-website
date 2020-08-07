@@ -34,6 +34,7 @@ app.post('/api/events', eventCtrl.createEvent);
 app.get('/api/events', eventCtrl.getAllEvents);
 app.get('/api/events/:id', eventCtrl.getSingleEvent);
 app.put('/api/events', eventCtrl.editEvent);
+app.delete('/api/events/:id', eventCtrl.deleteEvent);
 app.get('/api/sign-s3', (req, res) => {
     aws.config = {
         region: 'us-west-1',
