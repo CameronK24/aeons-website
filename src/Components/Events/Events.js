@@ -92,26 +92,48 @@ const Events = props => {
                         <div className='events-page-view'>
                             {redirect !== true
                             ?
-                                <div className='new-event-page'>
-                                    <section className='title-section'>
-                                        <h1>Event Title:</h1>
-                                        <input maxLength='75' placeholder='Max 75 characters' onChange={e => setTitle(e.target.value)} value={title} />
-                                    </section>
-                                    <section className='date-section'>
-                                        <h1>Event Date:</h1>
-                                        <input type='date' min={currentDate} onChange={e => setDate(e.target.value)} value={date} />
-                                    </section>
-                                    <section className='time-section'>
-                                        <h1>Event Time:</h1>
-                                        <input className='time' type='time' onChange={e => setTime(e.target.value)} value={time} />
-                                        <h1>Time Zone:</h1>
-                                        <input className='time-zone' placeholder='Example: PST' onChange={e => setTZ(e.target.value)} value={tz} />
-                                    </section>
-                                    <section className='details-section'>
-                                        <h1>Event Details:</h1>
-                                        <textarea onChange={e => setDetails(e.target.value)} value={details} ></textarea>
-                                    </section>
+                                <div className='events-page-view-inner'>
+                                    <div className='new-event-page'>
+                                        <section className='text-fields'>
+                                            <h1>Event Title:</h1>
+                                            <h1>Event Date:</h1>
+                                            <h1>Event Time:</h1>
+                                            <h1>Event Details:</h1>
+                                        </section>
+                                        <section className='input-fields'>
+                                            <input maxLength='75' placeholder='Max 75 characters' onChange={e => setTitle(e.target.value)} value={title} />
+                                            <input type='date' min={currentDate} onChange={e => setDate(e.target.value)} value={date} />
+                                            <section className='time-section'>
+                                                <input className='time' type='time' onChange={e => setTime(e.target.value)} value={time} />
+                                                <h1>Time Zone:</h1>
+                                                <input className='time-zone' placeholder='Example: PST' onChange={e => setTZ(e.target.value)} value={tz} />
+                                            </section>
+                                            <textarea onChange={e => setDetails(e.target.value)} value={details} ></textarea>
+                                        </section>
+                                        {/* <section className='title-section'>
+                                            <h1>Event Title:</h1>
+                                            <input maxLength='75' placeholder='Max 75 characters' onChange={e => setTitle(e.target.value)} value={title} />
+                                        </section>
+                                        <section className='date-section'>
+                                            <h1>Event Date:</h1>
+                                            <input type='date' min={currentDate} onChange={e => setDate(e.target.value)} value={date} />
+                                        </section>
+                                        <section className='time-section'>
+                                            <h1>Event Time:</h1>
+                                            <input className='time' type='time' onChange={e => setTime(e.target.value)} value={time} />
+                                            <h1>Time Zone:</h1>
+                                            <input className='time-zone' placeholder='Example: PST' onChange={e => setTZ(e.target.value)} value={tz} />
+                                        </section>
+                                        <section className='details-section'>
+                                            <h1>Event Details:</h1>
+                                            <textarea onChange={e => setDetails(e.target.value)} value={details} ></textarea>
+                                        </section> */}
+                                        
+                                    </div>
+                                    
                                     <button className='submit-event-btn' disabled={allowCreate} onClick={() => createEvent(props.user.userId)}>Create Event</button>
+                                    
+                                    
                                 </div>
                             : <Redirect to='/events' />
                             }

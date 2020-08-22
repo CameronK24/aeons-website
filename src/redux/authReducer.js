@@ -1,6 +1,6 @@
 const initialState = { 
     register: false,
-    loggedIn: false
+    loggedIn: true
 }
 
 const REGISTERING = 'REGISTERING';
