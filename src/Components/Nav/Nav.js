@@ -33,6 +33,8 @@ const Nav = props => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [mobileLogin, setMobileLogin] = useState(false);
+    const [mobileNav, setMobileNav] = useState(false);
 
     const loginUser = async () => {
         const body = {email, password}
@@ -61,6 +63,14 @@ const Nav = props => {
             .catch(err => console.log(err));
     }
 
+    const toggleMobileLogin = () => {
+        setMobileLogin(!mobileLogin);
+    }
+
+    const toggleMobileNav = () => {
+        setMobileNav(!mobileNav);
+    }
+
     return (
         <div className='site-nav'>
             {props.auth.loggedIn === false
@@ -85,7 +95,28 @@ const Nav = props => {
                                 <button className='auth-btn' onClick={loginUser}>Login</button>                
                                 <Link to='/register'><button className='auth-btn' onClick={() => props.registerUser()} >Register</button></Link>
                             </section>
+                            <section className='auth-box-mobile'>   
+                                <button className='auth-btn mobile-login' onClick={toggleMobileLogin}>Login</button>                
+                                <Link to='/register'><button className='auth-btn' onClick={() => props.registerUser()} >Register</button></Link>           
+                            </section>
                         </div>
+                        {mobileLogin === true
+                                ?
+                                    <div className='mobile-login-box'>
+                                        <div className='auth-input'>
+                                            <div className='email-input'>
+                                                <p>Email:</p>
+                                                <input type='email' value={email} onChange={e => setEmail(e.target.value)} />
+                                            </div>
+                                            <div className='pass-input'>
+                                                <p>Password:</p>
+                                                <input type='password' value={password} onChange={e => setPassword(e.target.value)} />
+                                            </div>
+                                            <button className='auth-btn mobile-login' onClick={loginUser}>Login</button>
+                                        </div>
+                                    </div>
+                                : null
+                                }
                     </div>
                 )
                 : (
@@ -100,6 +131,14 @@ const Nav = props => {
                                     <Link to='/home'><button className='nav-btn'>Home</button></Link>
                                     <Link to='/members'><button className='nav-btn'>Members</button></Link>
                                     <Link to='/events'><button className='nav-btn'>Events</button></Link>
+                                </section>
+                                <section className='mobile-nav-button' onClick={toggleMobileNav}>
+                                    <div className='mobile-menu-graphic'>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                    <button className='nav-btn'>Menu</button>
                                 </section>
                                 <section className='logout-section'>
                                     <Link to='/'><button className='auth-btn' onClick={logoutUser}>Logout</button></Link>
@@ -118,6 +157,21 @@ const Nav = props => {
                                 <p>New Event</p></Link>
                             </section>
                         </section>
+                        {mobileNav === true
+                        ? 
+                            <section className='mobile-nav-menu'>
+                                <ul className='mobile-nav-list'>
+                                    <Link to='/home'><li className='nav-btn'>Home</li></Link>
+                                    <Link to='/members'><li className='nav-btn'>Members</li></Link>
+                                    <Link to='/events'><li className='nav-btn'>Events</li></Link>
+                                    <Link to='/post/new-post'><li className='nav-btn'>New Post</li></Link>
+                                    <Link to='/events/new-event'><li className='nav-btn'>New Event</li></Link>
+                                    <Link to={`/profile/${props.user.userId}`}><li className='nav-btn'>Profile</li></Link>
+                                    <Link to='/'><li className='auth-btn' onClick={logoutUser}>Logout</li></Link>
+                                </ul>
+                            </section>
+                        : null
+                        }
                     </div>
                 )
             }

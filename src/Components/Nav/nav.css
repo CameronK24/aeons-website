@@ -67,6 +67,10 @@
     margin-left: 105px;
 }
 
+.mobile-nav-button {
+    display: none;
+}
+
 .auth-box h2 {
     font-size: 25px;
     font-weight: bold;
@@ -77,6 +81,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.auth-box-mobile {
+    display: none;
+}
+
+.mobile-login-box {
+    display: none;
 }
 
 .auth-input {
@@ -183,4 +195,263 @@
 
 .nav-btn:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width: 1600px) {
+    .logo-section {
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .auth-box {
+        width: 35%;
+    }
+
+    .nav-bar-2 .logo-section {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 1305px) {
+    .logo-section {
+        width: 35%;
+    }
+
+    .auth-box {
+        width: 45%;
+    }
+
+    .auth-input {
+        width: 50%;
+    }
+
+    .logo-section-2 {
+        width: 47%;
+    }
+
+    .logo-section-2 h1 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .logo-section {
+        width: 40%;
+    }
+
+    .auth-box {
+        width: 50%;
+    }
+
+    .logo-section-2 {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .logo-section {
+        width: 45%;
+    }
+
+    .auth-box {
+        width: 55%;
+    }
+
+    .logo-section-2 img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .nav-bar-content {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .logo-section {
+        width: 40%;
+    }
+
+    .logo-section h1 {
+        font-size: 30px;
+    }
+
+    .auth-box {
+        width: 55%;
+    }
+
+    .nav-bar-2 .nav-bar-content {
+        width: 90%;
+        justify-content: space-between;
+    }
+
+    .nav-area-2 {
+        display: none;
+    }
+
+    .mobile-nav-button {
+        padding-left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: .25s;
+    }
+
+    .mobile-nav-button:hover {
+        font-size: 20px;
+        color: #ffffff;
+        background-color: #1e839c;
+        border: none;
+        border-radius: 3px;
+    }
+
+    .mobile-nav-button:active {
+        background-color: #135566;
+    }
+
+    .side-profile {
+        display: none;
+    }
+
+    .logout-section {
+        display: none;
+    }
+
+    .mobile-menu-graphic div {
+        width: 20px;
+        height: 2px;
+        margin-top: 3px;
+        background-color: #ffffff;
+    }
+
+    .mobile-nav-menu {
+        position: absolute;
+        right: 0;
+        width: 175px;
+        height: auto;
+        padding: 10px;
+        background-color: #368dbe;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 20px 30px #000000;
+    }
+
+    .mobile-nav-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    .mobile-nav-list li {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .nav-bar-content {
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .logo-section {
+        width: 35%;
+    }
+
+    .logo-section h1 {
+        font-size: 25px;
+    }
+
+    .auth-box {
+        width: 65%;
+        justify-content: space-around;
+    }
+
+    .nav-bar-2 {
+        justify-content: center;
+    }
+
+    /* .nav-bar-2 .nav-bar-content {
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+    } */
+
+    .logo-section-2 {
+        margin-left: 0;
+    }
+
+    .nav-area-2 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .nav-bar-1 {
+        display: inline;
+    }
+
+    .auth-box {
+        display: none;
+    }
+
+    .auth-box-mobile {
+        display: flex;
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .mobile-login-box {
+        width: 50%;
+        height: 100px;
+        position: absolute;
+        background-color: #368dbe;
+        color: #ffffff;
+        box-shadow: 0px 20px 30px #000000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        right: 0;
+    }
+
+    .auth-input {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .logo-section img {
+        display: none;
+    }
+
+    .auth-box-mobile {
+        width: 45%;
+    }
+
+    .mobile-login-box {
+        height: 150px;
+    }
+
+    .email-input {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pass-input {
+        flex-direction: column;
+        align-items: center;
+    }
 }
