@@ -105,8 +105,11 @@ const Events = props => {
                                             <input type='date' min={currentDate} onChange={e => setDate(e.target.value)} value={date} />
                                             <section className='time-section'>
                                                 <input className='time' type='time' onChange={e => setTime(e.target.value)} value={time} />
-                                                <h1>Time Zone:</h1>
-                                                <input className='time-zone' placeholder='Example: PST' onChange={e => setTZ(e.target.value)} value={tz} />
+                                                <h1 className='time-zone-text'>Time Zone:</h1>
+                                                <div>
+                                                    <h1 className='tz'>TZ:</h1>
+                                                    <input className='time-zone' placeholder='Example: PST' onChange={e => setTZ(e.target.value)} value={tz} />
+                                                </div>
                                             </section>
                                             <textarea onChange={e => setDetails(e.target.value)} value={details} ></textarea>
                                         </section>
@@ -123,9 +126,9 @@ const Events = props => {
                     }
                 </div>
             : <RingLoader
-                size={300}
+                size={200}
                 color={'#ffffff'} 
-                css={'margin-left: 46%; margin-top: 25%; transform: translate(-50%, -50%)'} />
+                css={'position: static; margin-left: 50%; margin-top: 25%; transform: translate(-50%, -50%)'} />
             }       
         </Switch>
     )

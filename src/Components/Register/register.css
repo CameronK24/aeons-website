@@ -28,6 +28,7 @@
     width: 80%;
     display: flex;
     justify-content: space-between; 
+    flex-wrap: wrap;
     text-shadow: 1px 1px 1px #000000;
 }
 
@@ -43,6 +44,7 @@
 .register-btns {
     width: 80%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -54,4 +56,35 @@
     border-radius: 3px;
     box-shadow: 0px 0px 3px #000000;
     text-shadow: 1px 1px 1px #000000;
+}
+
+@media screen and (max-width: 1600px) {
+    .register-box {
+        width: 35vw;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .register-box {
+        width: 45vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .register-box {
+        width: 55vw;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .register-box {
+        width: 75vw;
+        height: 70vh;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .register-box {
+        width: 95vw;
+    }
 }

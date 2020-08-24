@@ -1,5 +1,4 @@
 .home-view {
-    z-index: 5;
     width: 100%;
     height: auto;
 }
@@ -13,8 +12,11 @@
 }
 
 .timestamp {
+    width: 98%;
+    /* position: relative; */
     font-size: 10px;
-    margin-left: 80%;
+    /* margin-left: 80%; */
+    text-align: right;
 }
 
 .post-box {
@@ -81,4 +83,86 @@
     width: 90%;
     text-align: left;
     word-wrap: break-word;
+}
+
+@media screen and (max-width: 1550px) {
+    .post-box {
+        height: auto;
+    }
+    .content-image {
+        margin-top: 4%;
+    }
+
+    .post-box p {
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (max-width: 1110px) {
+    .post-box {
+        width: 80%;
+        height: auto;
+    }
+
+    .post-box p {
+        margin-bottom: 2%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .post-box {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .author-title h2 {
+        font-size: 25px;
+        margin-top: 5%;
+        margin-bottom: 0;
+    }
+
+    .content-image {
+        margin-top: 3%;
+        width: 95%;
+        height: auto;
+    }
+
+    .post-box p {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .author-box h1 {
+        font-size: 12px;
+    }
+
+    .author-title h2 {
+        font-size: 20px;
+    }
+
+    .post-box p {
+        margin-top: 2%;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .author-title {
+        /* width: 100%; */
+        justify-content: space-between;
+    }
+    .author-title h2 {
+        font-size: 18px;
+    }
+
+    .post-box p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .author-title h2 {
+        font-size: 16px;
+    }
 }

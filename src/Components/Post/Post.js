@@ -69,7 +69,7 @@ const Post = props => {
     }
 
     const {getRootProps, getInputProps} = useDropzone({onDrop});
-    const [image, setImage] = useState('https://via.placeholder.com/400/000000/FFFFFF/?text=Preview');
+    const [image, setImage] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [isUploading, setIsUploading] = useState(false);

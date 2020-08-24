@@ -5,6 +5,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;
   color: #ffffff;
 }
 
@@ -43,10 +44,30 @@ button:disabled {
 }
 
 .page-view {
-  margin: 100px 150px;
+  /* margin: 100px 150px; */
+  margin: 10% 15%;
+
 }
 
 a {
   color: #ffffff;
   text-decoration: none;
+}
+
+@media screen and (max-width: 1000px) {
+  .page-view {
+    margin: 10% 5%;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .page-view {
+    margin: 20% 2%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .page-view {
+    margin: 25% .5%;
+  }
 }

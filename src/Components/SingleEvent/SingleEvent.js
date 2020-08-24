@@ -116,31 +116,31 @@ const SingleEvent = props => {
                                     }
                                 </div>
                             : 
-                            <div className='events-page-view'>
-                                <div className='new-event-page'>
-                                    <section className='title-section'>
-                                        <h1>Event Title:</h1>
-                                        <input maxLength='75' placeholder='Max 75 characters' onChange={e => setTitle(e.target.value)} value={title} />
-                                    </section>
-                                    <section className='date-section'>
-                                        <h1>Event Date:</h1>
-                                        <input type='date' min={currentDate} onChange={e => setDate(e.target.value)} value={date} />
-                                    </section>
-                                    <section className='time-section'>
-                                        <h1>Event Time:</h1>
-                                        <input className='time' type='time' onChange={e => setTime(e.target.value)} value={time} />
-                                        <h1>Time Zone:</h1>
-                                        <input className='time-zone' placeholder='Example: PST' onChange={e => setTZ(e.target.value)} value={tz} />
-                                    </section>
-                                    <section className='details-section'>
-                                        <h1>Event Details:</h1>
-                                        <textarea onChange={e => setDetails(e.target.value)} value={details} ></textarea>
-                                    </section>
-                                    <section className='edit-buttons'>
-                                        <button onClick={() => setIsEditing(false)}>Cancel Editing</button>
-                                        <button onClick={updateEvent}>Update Event</button>
-                                    </section>
-                                    
+                            <div className='events-page-view-2'>
+                                <div className='new-event-page-2'>
+                                    <section className='text-fields-2'>
+                                            <h1>Event Title:</h1>
+                                            <h1>Event Date:</h1>
+                                            <h1>Event Time:</h1>
+                                            <h1>Event Details:</h1>
+                                        </section>
+                                        <section className='input-fields-2'>
+                                            <input maxLength='75' placeholder='Max 75 characters' onChange={e => setTitle(e.target.value)} value={title} />
+                                            <input type='date' min={currentDate} onChange={e => setDate(e.target.value)} value={date} />
+                                            <section className='time-section'>
+                                                <input className='time' type='time' onChange={e => setTime(e.target.value)} value={time} />
+                                                <h1 className='time-zone-text'>Time Zone:</h1>
+                                                <div>
+                                                    <h1 className='tz'>TZ:</h1>
+                                                    <input className='time-zone' placeholder='Example: PST' onChange={e => setTZ(e.target.value)} value={tz} />
+                                                </div>
+                                            </section>
+                                            <textarea onChange={e => setDetails(e.target.value)} value={details} ></textarea>
+                                            <section className='edit-buttons'>
+                                                <button onClick={() => setIsEditing(false)}>Cancel</button>
+                                                <button onClick={updateEvent}>Update</button>
+                                            </section>
+                                        </section>     
                                 </div>
                             </div>
                             }

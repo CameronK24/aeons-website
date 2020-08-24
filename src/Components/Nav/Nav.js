@@ -161,12 +161,12 @@ const Nav = props => {
                         ? 
                             <section className='mobile-nav-menu'>
                                 <ul className='mobile-nav-list'>
-                                    <Link to='/home'><li className='nav-btn'>Home</li></Link>
-                                    <Link to='/members'><li className='nav-btn'>Members</li></Link>
-                                    <Link to='/events'><li className='nav-btn'>Events</li></Link>
-                                    <Link to='/post/new-post'><li className='nav-btn'>New Post</li></Link>
-                                    <Link to='/events/new-event'><li className='nav-btn'>New Event</li></Link>
-                                    <Link to={`/profile/${props.user.userId}`}><li className='nav-btn'>Profile</li></Link>
+                                    <Link to='/home'><li className='nav-btn' onClick={toggleMobileNav}>Home</li></Link>
+                                    <Link to='/members'><li className='nav-btn' onClick={toggleMobileNav}>Members</li></Link>
+                                    <Link to='/events'><li className='nav-btn' onClick={toggleMobileNav}>Events</li></Link>
+                                    <Link to='/post/new-post'><li className='nav-btn' onClick={toggleMobileNav}>New Post</li></Link>
+                                    <Link to='/events/new-event'><li className='nav-btn' onClick={toggleMobileNav}>New Event</li></Link>
+                                    <Link to={`/profile/${props.user.userId}`}><li className='nav-btn' onClick={toggleMobileNav}>Profile</li></Link>
                                     <Link to='/'><li className='auth-btn' onClick={logoutUser}>Logout</li></Link>
                                 </ul>
                             </section>
