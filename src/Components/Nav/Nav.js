@@ -156,6 +156,10 @@ const Nav = props => {
                                 <Link to='/events/new-event'><ion-icon name="calendar-outline"></ion-icon>
                                 <p>New Event</p></Link>
                             </section>
+                            <section className='version'>
+                                <p>Version 1.1.1</p>
+                                <p>Images property of Square Enix©</p>
+                            </section>
                         </section>
                         {mobileNav === true
                         ? 
