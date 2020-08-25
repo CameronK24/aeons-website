@@ -72,8 +72,9 @@ const Events = props => {
                 <Link to={`/event/${event.event_id}`} key={index}  >
                     <div className='event-box'>
                         <h1>{event.event_title}</h1>
-                        <section>
-                            <h2>{eventDate} {event.event_time} {event.event_timezone}</h2>
+                        <section className='event-box-time'>
+                            <h2>{eventDate} </h2>
+                            <h2>{event.event_time} {event.event_timezone}</h2>
                         </section>
                         <p>Click to view Event Details</p>
                     </div>
