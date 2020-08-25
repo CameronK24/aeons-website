@@ -21,7 +21,7 @@
     box-shadow: 0 0 30px #000000;
     display: flex;
     justify-content: center;
-    transition: 1s;
+    transition: .5s;
 }
 
 .user-info {
@@ -46,7 +46,7 @@
 }
 
 .user-box:hover {
-    transform: scale(1.1);
+    transform: scale(1.025);
     background-color: #5faed3ee;
 }
 

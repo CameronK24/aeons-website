@@ -45,13 +45,19 @@ button:disabled {
 
 .page-view {
   /* margin: 100px 150px; */
-  margin: 10% 15%;
+  margin: 5% 15%;
 
 }
 
 a {
   color: #ffffff;
   text-decoration: none;
+}
+
+@media screen and (max-width: 1600px) {
+  .page-view {
+    margin: 7% 15%;
+  }
 }
 
 @media screen and (max-width: 1000px) {
