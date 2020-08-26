@@ -54,6 +54,12 @@ a {
   text-decoration: none;
 }
 
+input, textarea {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  resize: none;
+}
+
 @media screen and (max-width: 1600px) {
   .page-view {
     margin: 7% 15%;
