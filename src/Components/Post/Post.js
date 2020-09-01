@@ -80,7 +80,11 @@ const Post = props => {
             {redirect !== true
             ? <div className='create-post-box'>
                 <input className='title-box' placeholder='Title of post. 100 character limit' maxLength='100' value={title} onChange={e => setTitle(e.target.value)} />
-                <img className='image-preview' src={image} alt='' />
+                {image
+                ? <img className='image-preview' src={image} alt='Image Preview' />
+                :null
+                }
+                
                 <div className='drop-box' {...getRootProps()}>
                     {isUploading
                     ? <RingLoader color={'#ffffff'} />

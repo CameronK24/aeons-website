@@ -73,6 +73,11 @@
     text-decoration: underline;
 }
 
+.post-box a {
+    display: flex;
+    justify-content: center;
+}
+
 .content-image {
     width: 90%;
     height: 250px;
