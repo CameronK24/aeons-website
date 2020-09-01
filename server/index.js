@@ -10,12 +10,9 @@ const path = require('path');
 const aws = require('aws-sdk');
 
 const {S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
-const {SERVER_PORT, IO_PORT, DB_URI, SESSION_SECRET} = process.env;
+const {SERVER_PORT, DB_URI, SESSION_SECRET} = process.env;
 
 const app = express();
-
-const server = require('http').createServer(app);
-const io = require('socket.io')(server);
 
 app.use(express.json());
 
@@ -84,14 +81,4 @@ app.get('*', (req, res) => {
 });
 
 app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`));
-
-io.set('origins', '*:*');
-
-io.on('connection', (client) => {
-    console.log('A user has connected');
-    
-    client.on('disconnect', () => {
-        console.log('User has disconnected');
-    })
-})
 
