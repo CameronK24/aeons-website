@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {registerUser, loginUser, notRegisteringUser, logoutUser} from '../../redux/authReducer';
 import {storeUserInfo} from '../../redux/userReducer';
 import axios from 'axios';
+import Chat from '../Chat/Chat';
 import logo from '../../images/aeons-logo.png'
 import './nav.css';
 
@@ -155,9 +156,11 @@ const Nav = props => {
                                 <p>New Post</p></Link>
                                 <Link to='/events/new-event'><ion-icon name="calendar-outline"></ion-icon>
                                 <p>New Event</p></Link>
+                                <Chat />
                             </section>
                             <section className='version'>
                                 <p>Version 1.1.4</p>
+                                <p>Contact: cskelly15@gmail.com</p>
                                 <p>Images property of Square Enix©</p>
                             </section>
                         </section>

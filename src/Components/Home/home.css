@@ -80,8 +80,13 @@
 
 .content-image {
     width: 90%;
-    height: 250px;
-    object-fit: scale-down;
+    height: auto;
+    transition: .2s;
+}
+
+.content-image:hover {
+    box-shadow: 0 0 20px #d1d1d1;
+    border-radius: 10px;
 }
 
 .post-box p {
