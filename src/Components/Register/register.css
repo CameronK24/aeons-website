@@ -1,6 +1,6 @@
 .register-box {
     position: absolute;
-    width: 25vw;
+    width: 30vw;
     height: 50vh;
     margin: 0;
     top: 50%;
@@ -66,19 +66,19 @@
 
 @media screen and (max-width: 1200px) {
     .register-box {
-        width: 45vw;
+        width: 50vw;
     }
 }
 
 @media screen and (max-width: 900px) {
     .register-box {
-        width: 55vw;
+        width: 65vw;
     }
 }
 
 @media screen and (max-width: 700px) {
     .register-box {
-        width: 75vw;
+        width: 80vw;
         height: 70vh;
     }
 }
@@ -86,5 +86,12 @@
 @media screen and (max-width: 550px) {
     .register-box {
         width: 95vw;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .character-auth, .email-auth, .pass-auth {
+        display: inline;
+        text-align: center;
     }
 }

@@ -34,7 +34,6 @@ const Home = () => {
                 ? <a target='_blank' rel='noopener noreferrer' href={post.post_image}><img className='content-image' src={post.post_image} alt='' /></a>
                 : null
                 }
-                
                 <p>{post.post_content}</p>
             </div>
         )));
