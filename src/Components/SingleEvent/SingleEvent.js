@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
-import {RingLoader} from 'react-spinners';
+import {ClipLoader} from 'react-spinners';
 import {connect} from 'react-redux';
 import './singleEvent.css';
 
@@ -146,7 +146,7 @@ const SingleEvent = props => {
                             }
                             
                         </div>
-                    : <RingLoader 
+                    : <ClipLoader 
                         size={300}
                         color={'#ffffff'} 
                         css={'position: absolute; left: 47%; top: 50%; transform: translate(-50%, -50%);'}/>

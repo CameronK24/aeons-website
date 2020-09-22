@@ -156,7 +156,6 @@ const Nav = props => {
                                 <p>New Post</p></Link>
                                 <Link to='/events/new-event'><ion-icon name="calendar-outline"></ion-icon>
                                 <p>New Event</p></Link>
-                                <Chat />
                             </section>
                             <section className='version'>
                                 <p>Version 1.1.4</p>

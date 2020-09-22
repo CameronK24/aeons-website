@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {RingLoader} from 'react-spinners';
+import {ClipLoader} from 'react-spinners';
 import {Link} from 'react-router-dom';
 import './home.css';
 
@@ -45,7 +45,7 @@ const Home = () => {
             ? <div className='mapped-posts'>
                 {mappedPosts}
             </div>
-            : <RingLoader 
+            : <ClipLoader 
                 className='loader' 
                 size={300}
                 color={'#ffffff'}

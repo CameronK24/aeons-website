@@ -14,9 +14,6 @@ const {SERVER_PORT, IO_PORT, DB_URI, SESSION_SECRET} = process.env;
 
 const app = express();
 
-const server = require('http').createServer(app);
-const io = require('socket.io')(server);
-
 app.use(express.json());
 
 app.use(session({
@@ -83,15 +80,16 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
-app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`));
+const server = app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`));
 
-io.set('origins', '*:*');
+const io = require("socket.io").listen(server);
 
 io.on('connection', (client) => {
     console.log('A user has connected');
-    
+    client.on('chatMessage', (msg) => {
+        io.emit(`chatroom-${msg.chatroom_id}`, msg);
+    });
     client.on('disconnect', () => {
         console.log('User has disconnected');
-    })
-})
-
+    });
+});

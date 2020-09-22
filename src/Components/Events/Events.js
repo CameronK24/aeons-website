@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import {Switch, Redirect, Link} from 'react-router-dom';
-import {RingLoader} from 'react-spinners';
+import {ClipLoader} from 'react-spinners';
 import './events.css';
 
 const Events = props => {
@@ -126,7 +126,7 @@ const Events = props => {
                         </div>
                     }
                 </div>
-            : <RingLoader
+            : <ClipLoader
                 size={200}
                 color={'#ffffff'} 
                 css={'position: static; margin-left: 50%; margin-top: 25%; transform: translate(-50%, -50%)'} />
