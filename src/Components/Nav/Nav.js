@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import {registerUser, loginUser, notRegisteringUser, logoutUser} from '../../redux/authReducer';
 import {storeUserInfo} from '../../redux/userReducer';
 import axios from 'axios';
-import Chat from '../Chat/Chat';
 import logo from '../../images/aeons-logo.png'
 import './nav.css';
 
@@ -36,6 +35,7 @@ const Nav = props => {
     const [password, setPassword] = useState('');
     const [mobileLogin, setMobileLogin] = useState(false);
     const [mobileNav, setMobileNav] = useState(false);
+    const [mobileMenuClass, setMobileMenuClass] = useState('mobile-nav-menu');
 
     const loginUser = async () => {
         const body = {email, password}
@@ -70,6 +70,12 @@ const Nav = props => {
 
     const toggleMobileNav = () => {
         setMobileNav(!mobileNav);
+        if (mobileMenuClass === 'mobile-nav-menu') {
+            setMobileMenuClass('mobile-nav-menu-2');
+        }
+        else {
+            setMobileMenuClass('mobile-nav-menu');
+        }
     }
 
     return (
@@ -165,7 +171,7 @@ const Nav = props => {
                         </section>
                         {mobileNav === true
                         ? 
-                            <section className='mobile-nav-menu'>
+                            <section className={mobileMenuClass}>
                                 <ul className='mobile-nav-list'>
                                     <Link to='/home'><li className='nav-btn' onClick={toggleMobileNav}>Home</li></Link>
                                     <Link to='/members'><li className='nav-btn' onClick={toggleMobileNav}>Members</li></Link>

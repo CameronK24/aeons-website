@@ -8,6 +8,7 @@ const eventCtrl = require('./controllers/eventController');
 const session = require('express-session');
 const path = require('path');
 const aws = require('aws-sdk');
+const { emit } = require('process');
 
 const {S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
 const {SERVER_PORT, IO_PORT, DB_URI, SESSION_SECRET} = process.env;
@@ -80,6 +81,8 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'));
 });
 
+let loggedInUsers = [];
+
 const server = app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`));
 
 const io = require("socket.io").listen(server);
@@ -87,9 +90,25 @@ const io = require("socket.io").listen(server);
 io.on('connection', (client) => {
     console.log('A user has connected');
     client.on('chatMessage', (msg) => {
-        io.emit(`chatroom-${msg.chatroom_id}`, msg);
+        io.emit(`chatMessage`, msg);
     });
     client.on('disconnect', () => {
         console.log('User has disconnected');
+        io.emit('userDisconnected', loggedInUsers);
     });
+    client.on('userConnected', (user) => {
+        let alreadyLoggedIn = false;
+        for (let x = 0; x < loggedInUsers.length; x++) {
+            if (loggedInUsers[x] === user.characterName) {
+                alreadyLoggedIn = true
+            }
+        }
+        if (alreadyLoggedIn === false) {
+            loggedInUsers.push({
+                characterName: user.characterName,
+                userId: user.userId
+            })
+            io.emit('userConnected', loggedInUsers);
+        }
+    })
 });
