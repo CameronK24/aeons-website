@@ -11,7 +11,7 @@ const aws = require('aws-sdk');
 const { emit } = require('process');
 
 const {S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
-const {SERVER_PORT, IO_PORT, DB_URI, SESSION_SECRET} = process.env;
+const {SERVER_PORT, DB_URI, SESSION_SECRET} = process.env;
 
 const app = express();
 
@@ -85,6 +85,7 @@ let loggedInUsers = [];
 
 const server = app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`));
 
+<<<<<<< HEAD
 const io = require("socket.io").listen(server);
 
 io.on('connection', (client) => {
@@ -119,3 +120,5 @@ io.on('connection', (client) => {
         }
     })
 });
+=======
+>>>>>>> master
