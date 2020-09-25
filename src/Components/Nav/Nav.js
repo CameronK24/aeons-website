@@ -172,7 +172,7 @@ const Nav = props => {
                                 <p>New Event</p></Link>
                             </section>
                             <section className='version'>
-                                <p>Version 1.1.4</p>
+                                <p>Version 1.2.0</p>
                                 <p>Contact: cskelly15@gmail.com</p>
                                 <p>Images property of Square Enix©</p>
                             </section>
