@@ -173,6 +173,7 @@ const Nav = props => {
                             </section>
                             <section className='version'>
                                 <p>Version 1.2.0</p>
+                                <p>Designed and built by: Cameron Kelly</p>
                                 <p>Contact: cskelly15@gmail.com</p>
                                 <p>Images property of Square Enix©</p>
                             </section>
