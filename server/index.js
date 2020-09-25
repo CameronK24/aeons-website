@@ -85,7 +85,6 @@ let loggedInUsers = [];
 
 const server = app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`));
 
-<<<<<<< HEAD
 const io = require("socket.io").listen(server);
 
 io.on('connection', (client) => {
@@ -120,5 +119,3 @@ io.on('connection', (client) => {
         }
     })
 });
-=======
->>>>>>> master
