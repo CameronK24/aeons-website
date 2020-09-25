@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import axios from 'axios';
 import {useDropzone} from 'react-dropzone';
 import {v4 as randomString} from 'uuid';
-import {RingLoader} from 'react-spinners';
+import {ClipLoader} from 'react-spinners';
 import {connect} from 'react-redux';
 import {Switch, Redirect} from 'react-router-dom';
 import './post.css';
@@ -87,7 +87,7 @@ const Post = props => {
                 
                 <div className='drop-box' {...getRootProps()}>
                     {isUploading
-                    ? <RingLoader color={'#ffffff'} />
+                    ? <ClipLoader color={'#ffffff'} />
                     : <div className='drop-input'>
                         <input {...getInputProps()}/>
                         <p>Drag 'n' drop or click to upload an image.</p>

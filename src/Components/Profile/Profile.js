@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {RingLoader} from 'react-spinners';
+import {ClipLoader} from 'react-spinners';
 import './profile.css';
 
 const Profile = props => {
@@ -24,7 +24,7 @@ const Profile = props => {
                 <h1>{user.name}</h1>
                 {isLoading !== true
                 ? <img src={user.portrait} alt='member portrait' />
-                : <RingLoader
+                : <ClipLoader
                     size={300}
                     color={'#ffffff'} 
                     css={'margin-right: 50px;'}/>

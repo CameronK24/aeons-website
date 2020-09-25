@@ -49,7 +49,7 @@ module.exports = {
         const registerUser = await db.register_user([email, hash, Name, Avatar, Portrait, ID]);
         const user = registerUser[0];
 
-        req.session.userId = user.user_id;
+        req.session.user = user;
         return res.status(200).send(user);
     },
     login: async (req, res) => {
@@ -64,17 +64,17 @@ module.exports = {
         if (!isAuthenticated) {
             return res.status(403).send('Incorrect password');
         }
-        req.session.userId = existingUser.user_id;
+        req.session.user = existingUser;
         return res.status(200).send(existingUser);
     },
 
     loggedInUser: (req, res) => {
-        const userId = req.session.userId;
         const db = req.app.get('db');
-        if (userId === undefined) {
+        if (req.session.user === undefined) {
             return res.sendStatus(200);
         }
         else {
+            const userId = req.session.user.user_id;
             db.get_current_user([userId])
             .then(user => {
                 res.status(200).send(user[0]);
