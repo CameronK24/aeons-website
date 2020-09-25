@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import socket from 'socket.io-client';
+// import socket from 'socket.io-client';
+import {client} from '../../service/socket';
 import './chat.css';
 
 const Chat = props => {
-    const [client] = useState(() => {
-        const initialState = socket('http://localhost:4040');
-        return initialState;
-    });
     const [openDisplay, setOpenDisplay] = useState({display: 'flex'});
     const [closeDisplay, setCloseDisplay] = useState({display: 'none'});
     const [chatWindow, setChatWindow] = useState('chat-window');
@@ -33,13 +30,6 @@ const Chat = props => {
                     })
                 });
             }
-            // client.on('userDisconnected', () => {
-            //     setNewMessage({
-            //         characterName: 'User',
-            //         message: 'has disconnected',
-            //         disconnected: true
-            //     })
-            // }) 
             getNewMessage();
             return function cleanup() {
                 abortController.abort();
@@ -60,22 +50,33 @@ const Chat = props => {
 
     useEffect(() => {
         if (client) {
-            client.on('userConnected', users => {
+            client.on('userConnected', (users, user) => {
                 setLoggedInUsers(users);
+                setNewMessage({
+                    characterName: user.characterName,
+                    message: 'has connected',
+                    connectionEvent: true
+                })
             })
         }
     }, [])
 
     useEffect(() => {
         if (client) {
-            client.on('userDisconnected', users => {
+            client.on('userDisconnected', (users, disconnectingUser) => {
+                console.log(users);
                 setLoggedInUsers(users);
+                setNewMessage({
+                    characterName: disconnectingUser.characterName,
+                    message: 'has disconnected',
+                    connectionEvent: true
+                })
             })
         }
     }, [])
 
     useEffect(() => {
-        if (newMessage.message) {
+        if (newMessage.characterName) {
             setListMessages([...listMessages, newMessage]);
         }
     }, [newMessage]);
@@ -83,12 +84,12 @@ const Chat = props => {
     useEffect(() => {
         if (listMessages !== []) {
             setMappedMessages(listMessages.map((element, index) => {
-                if (element.disconnected) {
+                if (element.connectionEvent) {
                     return (
-                        <div className='notMyMessage' key={index}>
+                        <div className='connectionMessage' key={index}>
                             <li>
-                                <p className='chat-username'>{element.characterName}</p>
-                                <p className='message-display-2'>{element.message}</p>
+                                <span className='chat-username'>{element.characterName}</span>
+                                <span className='message-display-2'>{element.message}</span>
                             </li>
                         </div>
                     )
@@ -96,12 +97,11 @@ const Chat = props => {
 
                 else {
                     if (element.characterName === props.user.characterName) {
-                        console.log(element);
                         return (
                             <div className='myMessage' key={index}>
                                 <li>
-                                    <p className='chat-username'>Me:</p>
-                                    <p className='message-display'>{element.message}</p>
+                                    <span className='chat-username'>Me:</span>
+                                    <span className='message-display'>{element.message}</span>
                                 </li>
                             </div>
                         )
@@ -110,8 +110,8 @@ const Chat = props => {
                         return (
                             <div className='notMyMessage' key={index}>
                                 <li>
-                                    <p className='chat-username'>{element.characterName}:</p>
-                                    <p className='message-display-2'>{element.message}</p>
+                                    <span className='chat-username'>{element.characterName}:</span>
+                                    <span className='message-display'>{element.message}</span>
                                 </li>
                             </div>
                         )
@@ -140,7 +140,6 @@ const Chat = props => {
             characterName: props.user.characterName,
             message: chatMessage
         };
-        console.log(combined);
         await client.emit('chatMessage', combined);
         setChatMessage('');
     }
@@ -171,6 +170,12 @@ const Chat = props => {
         }
     }
 
+    const handleKeyDown = (keyPress) => {
+        if(keyPress.key === 'Enter') {
+            send();
+        }
+    }
+
     return (
         <div className='chat-component'>
             <div className={userWindow}>
@@ -196,13 +201,13 @@ const Chat = props => {
                 </section> 
                 <section className='chat-view' style={closeDisplay}>
                     <section className='send-chat'>
-                        <input className='chat-input' maxLength='100' value={chatMessage} placeholder='100 Character Limit' onChange={e => setChatMessage(e.target.value)}/>
+                        <input className='chat-input' maxLength='100' value={chatMessage} placeholder='100 Character Limit' onKeyDown={e => handleKeyDown(e)} onChange={e => setChatMessage(e.target.value)}/>
                         <button className='send-btn' onClick={send}><ion-icon name="send"></ion-icon></button>
                     </section>
                     <section className='chat-display'>
                         <ul className='messages-list'>
                             {mappedMessages
-                            ?<div>{mappedMessages}</div>
+                            ?<div className='messageFlex'>{mappedMessages}</div>
                             :null
                             }
                             <div className='anchor'></div>

@@ -94,21 +94,28 @@ io.on('connection', (client) => {
     });
     client.on('disconnect', () => {
         console.log('User has disconnected');
-        io.emit('userDisconnected', loggedInUsers);
+        let disconnectingUser = {};
+        for (let i = 0; i < loggedInUsers.length; i++) {
+            if (loggedInUsers[i].clientId === client.id) {
+                disconnectingUser = loggedInUsers[i];
+                loggedInUsers.splice(i, 1);
+            }
+        }
+        io.emit('userDisconnected', loggedInUsers, disconnectingUser);
     });
     client.on('userConnected', (user) => {
         let alreadyLoggedIn = false;
         for (let x = 0; x < loggedInUsers.length; x++) {
-            if (loggedInUsers[x] === user.characterName) {
+            if (loggedInUsers[x].characterName === user.characterName) {
                 alreadyLoggedIn = true
             }
         }
         if (alreadyLoggedIn === false) {
             loggedInUsers.push({
                 characterName: user.characterName,
-                userId: user.userId
+                clientId: client.id
             })
-            io.emit('userConnected', loggedInUsers);
+            io.emit('userConnected', loggedInUsers, user);
         }
     })
 });
