@@ -290,10 +290,6 @@
     margin-right: 5px;
 }
 
-.message-display {
-    word-break: break-all;
-}
-
 @media screen and (max-width: 375px) {
     .user-window {
         width: 40px;
