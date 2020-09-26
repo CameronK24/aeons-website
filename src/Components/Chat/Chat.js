@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-// import socket from 'socket.io-client';
 import {client} from '../../service/socket';
 import './chat.css';
 
@@ -133,7 +132,7 @@ const Chat = props => {
                 )
             }))
         }
-    }, [loggedInUsers])
+    }, [loggedInUsers]);
 
     const send = async () => {
         const combined = {

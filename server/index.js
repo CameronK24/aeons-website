@@ -113,7 +113,8 @@ io.on('connection', (client) => {
         if (alreadyLoggedIn === false) {
             loggedInUsers.push({
                 characterName: user.characterName,
-                clientId: client.id
+                clientId: client.id,
+                userId: user.userId
             })
             io.emit('userConnected', loggedInUsers, user);
         }

@@ -27,7 +27,7 @@
 
 .user-window-2 {
     background-color: #67c2ec;
-    width: 200px;
+    width: 250px;
     height: 315px;
     border-radius: 5px;
     box-shadow: 0 0 10px #000000;
@@ -111,9 +111,9 @@
     background-color: #67c2ec;
     resize: both;
     overflow: auto;
-    width: 200px;
+    width: 250px;
     height: 315px;
-    min-width: 200px;
+    min-width: 250px;
     min-height: 315px;
     max-width: 400px;
     max-height: 600px;
@@ -125,7 +125,7 @@
     flex-direction: column-reverse;
     justify-content: space-between;
     align-items: center;
-    transition: .8s;
+    transition: .5s;
 }
 
 .open-close-chat {
@@ -288,6 +288,24 @@
 .chat-username {
     font-weight: 600;
     margin-right: 5px;
+}
+
+@media screen and (max-width: 450px) {
+    .chat-component {
+        width: 100%;
+        bottom: 0;
+        right: 0;
+        margin-bottom: 5px;
+    }
+
+    .user-window-2 {
+        margin: 0 auto 10px auto;
+    }
+
+    .chat-window-2 {
+        width: 95%;
+        margin: 0 auto;
+    }
 }
 
 @media screen and (max-width: 375px) {
