@@ -1,0 +1,12 @@
+.portfolio-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #4b4b4b;
+    margin: -5% 0 0 -15%;
+}
+
+.portfolio-view {
+    margin-top: 5%;
+}
+

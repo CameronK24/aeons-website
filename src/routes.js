@@ -8,6 +8,7 @@ import Profile from './Components/Profile/Profile';
 import Post from './Components/Post/Post';
 import Members from './Components/Members/Members';
 import SingleEvent from './Components/SingleEvent/SingleEvent';
+import Portfolio from './Components/Portfolio/Portfolio';
 
 export default (
     <Switch>
@@ -20,5 +21,6 @@ export default (
         <Route component={Post} path='/post/new-post' />
         <Route component={Events} path='/events/new-event' />
         <Route component={SingleEvent} path='/event/:id' />
+        <Route component={Portfolio} path='/portfolio' />
     </Switch>
 );

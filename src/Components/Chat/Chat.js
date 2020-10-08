@@ -184,9 +184,13 @@ const Chat = props => {
                 </section>
                 <section className='user-view' style={userCloseDisplay}>
                     <section className='user-display'>
+                        <div className='online-members'>Online Members</div>
                         <ul className='user-list'>
                             {mappedLoggedInUsers
-                            ?<div>{mappedLoggedInUsers}</div>
+                            ?
+                                <div>
+                                    {mappedLoggedInUsers}
+                                </div>
                             :null
                             }
                         </ul>

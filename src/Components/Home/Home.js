@@ -1,22 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import {changeNavColor, changeBtnColor} from '../../redux/portfolioReducer';
 import {ClipLoader} from 'react-spinners';
 import {Link} from 'react-router-dom';
 import './home.css';
 
-const Home = () => {
+const Home = props => {
 
     const [posts, setPosts] = useState([]);
     const [mappedPosts, setMappedPosts] = useState([]);
     const [loadingPosts, setLoadingPosts] = useState(true);
 
-    useEffect(() => {
+    useEffect(() => {    
         axios.get('/api/posts')
             .then(res => {
                 setPosts(res.data);
                 setLoadingPosts(false);
             })
             .catch(err => alert(err));
+        props.changeNavColor('nav-bar-color-1');
+        props.changeBtnColor('auth-btn');
     }, [])
 
     useEffect(() => {
@@ -56,4 +60,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default connect(null, {changeNavColor, changeBtnColor})(Home);

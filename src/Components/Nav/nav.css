@@ -3,27 +3,33 @@
     z-index: 10;
 }
 
+.nav-bar-color-1 {
+    background-color: #368dbe;
+    box-shadow: 0px 20px 30px #000000;
+}
+
+.nav-bar-color-2 {
+    background-color: #686868;
+    box-shadow: 0px 3px 20px #000000;
+}
+
 .nav-bar-1 {
     position: absolute;
     width: 100vw;
     height: 75px;
-    background-color: #368dbe;
     color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 20px 30px #000000;
 }
 
 .nav-bar-2 {
     z-index: 9;
     width: 100vw;
     height: 75px;
-    background-color: #368dbe;
     color: #ffffff;
     display: flex;
     align-items: center;
-    box-shadow: 0px 20px 30px #000000;
 }
 
 .nav-bar-content {
@@ -114,6 +120,20 @@
 
 .auth-btn {
     font-family: 'Kaushan Script', cursive;
+}
+
+.auth-btn-2 {
+    font-family: 'Kaushan Script', cursive;
+    background-color: #b3b3b3;
+    transition: .25s;
+}
+
+.auth-btn-2:hover {
+    background-color: #8d8d8d;
+}
+
+.auth-btn-2:active {
+    background-color: #575757;
 }
 
 .logout-section {
