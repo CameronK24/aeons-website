@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
-import {changeNavColor, changeBtnColor} from '../../redux/portfolioReducer';
+import {changeNavColor, changeBtnColor, changeSideColor} from '../../redux/portfolioReducer';
 import './landingPage.css';
 
 const LandingPage = props => {
@@ -9,6 +9,7 @@ const LandingPage = props => {
     useEffect(() => {
         props.changeNavColor('nav-bar-color-1');
         props.changeBtnColor('auth-btn');
+        props.changeSideColor('side-profile-color-1');
     }, [])
 
     return (
@@ -34,4 +35,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, {changeNavColor, changeBtnColor})(LandingPage);
+export default connect(mapStateToProps, {changeNavColor, changeBtnColor, changeSideColor})(LandingPage);

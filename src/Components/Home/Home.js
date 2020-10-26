@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {changeNavColor, changeBtnColor} from '../../redux/portfolioReducer';
+import {changeNavColor, changeBtnColor, changeSideColor} from '../../redux/portfolioReducer';
 import {ClipLoader} from 'react-spinners';
 import {Link} from 'react-router-dom';
 import './home.css';
@@ -21,6 +21,7 @@ const Home = props => {
             .catch(err => alert(err));
         props.changeNavColor('nav-bar-color-1');
         props.changeBtnColor('auth-btn');
+        props.changeSideColor('side-profile-color-1');
     }, [])
 
     useEffect(() => {
@@ -60,4 +61,4 @@ const Home = props => {
     )
 }
 
-export default connect(null, {changeNavColor, changeBtnColor})(Home);
+export default connect(null, {changeNavColor, changeBtnColor, changeSideColor})(Home);

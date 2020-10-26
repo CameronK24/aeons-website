@@ -155,11 +155,11 @@ const Nav = props => {
                                         <button className='nav-btn'>Menu</button>
                                     </section>
                                     <section className='logout-section'>
-                                        <Link to='/'><button className='auth-btn' onClick={logoutUser}>Logout</button></Link>
+                                        <Link to='/'><button className={props.portfolio.buttonColor} onClick={logoutUser}>Logout</button></Link>
                                     </section>
                                 </section>
                             </div>
-                            <section className='side-profile'>
+                            <section className={`side-profile ${props.portfolio.sideProfileColor}`}>
                                 <section className='character-small-profile'>
                                     <Link to={`/profile/${props.user.userId}`}><img src={props.user.avatar} alt='avatar' />
                                     <h3>{props.user.characterName} </h3></Link>
@@ -171,6 +171,7 @@ const Nav = props => {
                                     <p>New Event</p></Link>
                                 </section>
                                 <section className='version'>
+                                    <Link to='/portfolio'><p className='portfolio-nav-link'>Portfolio</p></Link>
                                     <p>Version 1.2.0</p>
                                     <p>Designed and built by: Cameron Kelly</p>
                                     <p>Contact: cskelly15@gmail.com</p>
