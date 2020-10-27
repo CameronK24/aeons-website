@@ -28,7 +28,7 @@ const Portfolio = props => {
                     <p>Would I say I'm lucky? Yeah absolutely. Do I feel unlucky sometimes? Of course I do. But when I think about what has happened in my life so far, I have to say, I lucked out pretty hard. Are there a lot of things I've never done or been apart of? Yeah, like, I've never been in a fist fight, I've never been further than Wyoming, I've never had a girlfriend (that one hurts the most), I've never played in a band even though I want too and it would be dope as hell, and I never got over my fear of amusement park rides.</p>
                     <p>But there are things I have done. I've climbed several mountains in my area, visited many National Parks, joined a raid static and became an epic gamer, made some amazing friends that do nothing but lift me up, and I hope I do the same for them, had an amazing time at a pizza restaurant as my first job, where I met some amazing people, I got to grow up knowing these incredible human beings. The greatest part about my life though? That would have to be that my family is still together, we all love each other, we accept each other and we always get together.</p>
                 </section>
-                <p className='tldr'>TLDR: My life has been pretty awesome so far.</p>
+                <p className='tldr'>TLDR: My life has been pretty sweet so far.</p>
                 <h2>SKILLERINO'S</h2>
                 <section className='skills'>
                     <ul className='skill-section'> <p>THE BASICS</p>
@@ -57,7 +57,20 @@ const Portfolio = props => {
                 </section>
                 <h2>PROJECTS</h2>
                 <section className='projects'>
-
+                    <div className='single-project'>
+                        <a href='https://orderofbahamut.com/'>
+                            <h3>Order of Bahamut</h3>
+                        </a>
+                        <iframe className='site-preview' src='https://orderofbahamut.com/'></iframe>
+                        <p></p>
+                    </div>
+                    <div className='single-project'>
+                        <a href='http://www.jam-sessions.live/'>
+                            <h3>Jam Sessions</h3>
+                        </a>
+                        <iframe className='site-preview' src='http://www.jam-sessions.live/'></iframe>
+                        <p></p>
+                    </div>
                 </section>
             </div>
         </div>

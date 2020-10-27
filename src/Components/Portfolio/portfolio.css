@@ -92,3 +92,40 @@
     margin-top: 3%;
 }
 
+.projects {
+    width: 95%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.single-project {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single-project h3 {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+    margin-bottom: 25px;
+    margin-top: 5%;
+    color: #3f3f3f;
+}
+
+.single-project h3:hover {
+    color: #f0f0f0;
+}
+
+.single-project h3:active {
+    color: #a8a8a8;
+}
+
+.site-preview {
+    width: 100%;
+    height: 500px;
+    border-radius: 10px;
+    border: 2px solid #888888;
+}
+
