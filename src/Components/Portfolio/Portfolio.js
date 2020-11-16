@@ -15,62 +15,72 @@ const Portfolio = props => {
     return (
         <div className='portfolio-page'>
             <div className='portfolio-view'>
-                <h1 className='portfolio-header'>Cameron Kelly's Portfolio</h1>
-                <h2>About Me</h2>
-                <section className='about'>
-                    <p>I am a scrawny city boy from Orem that has always dreamed big. I always thought "what if I did this" but never actually did anything besides dreaming. I've lived a good life. Not a luxurious life, nor an interesting life, just a good one.</p>
-                    <p>I never really cared for going out and being adventurous. I tend to live out that desire through video games. Video games have been an import part of my life, they have and still take up a large portion of my free time. As I've grown though, I've realized that I can't just spend all my time playing Skyrim, or The Legend of Zelda, I have to do different things, work on different things. Recently I rediscovered my passion for development and now there's no way I don't pursue it. Lookout world, Cameron Kelly's gonna shake things up in this bitch!</p>
-                    <title>My life so far</title>
-                    <p>Born in Payson, Utah, I've spent my whole life living in Utah. Now you might think "So he's Mormon", and you're half right. I was born and raised in the Mormon church, I spent years doing all the things every kid growing up in the Mormon church: Boy Scouts, before they parted ways with it, weekly activities called mutual, and of course, attending church on Sundays.</p>
-                    <p>I never really cared about any of that stuff at all. Growing up all I wanted to do was what any normal kid would want to do. Play with their friends, not have school, and just pretend you have no responsibilities. My free time was of course spent playing video games, with my brothers and my friends.</p>
-                    <p>I didn't realize it until I was maybe 21 years old, at that point I had left the Mormon church and everything to do with it, but I realized that ever since I was a kid I never really believed what the Mormon church was telling me. Throughout all those years, all those Sundays, all those mutual activities, all those Boy Scouts activities, all the constant drilling of God is real, God loves you, God this, God that, be good and believe or you won't get into heaven. I honestly never truly believed any of it. It was all just background noise to me. I never wanted to do any of those things, I never wanted to go to church, I never wanted to go to mutual, I never wanted to go to Boy Scouts activities. It was all just what I was expected to do.</p>
-                    <p>Now my mom, bless her heart. She had to put up with 6 boys all on her own after my parents got divorced. 6 rowdy boys. How we all ended up mostly normal and good people I'll never know. I lucked out to be honest, I am the youngest of the 6, and I'm the 5th one to leave the Mormon church. I can tell my mom isn't super happy about it, she's probably embarrassed that only 1 of her boys wanted to stay in the Mormon church. I've heard a lot of stories about religious parents ostracizing their kids when they leave whatever religion that they are a part of, and I think by some miracle, my mom just isn't like that. Would she love it if we were all Mormon with her, absolutely, but is she willing to accept that we all have our own lives and our own paths? Yes. So for the sake of her family, she puts family over religion, and I know quite a few people where that just isn't possible.</p>
-                    <p>Would I say I'm lucky? Yeah absolutely. Do I feel unlucky sometimes? Of course I do. But when I think about what has happened in my life so far, I have to say, I lucked out pretty hard. Are there a lot of things I've never done or been apart of? Yeah, like, I've never been in a fist fight, I've never been further than Wyoming, I've never had a girlfriend (that one hurts the most), I've never played in a band even though I want too and it would be dope as hell, and I never got over my fear of amusement park rides.</p>
-                    <p>But there are things I have done. I've climbed several mountains in my area, visited many National Parks, joined a raid static and became an epic gamer, made some amazing friends that do nothing but lift me up, and I hope I do the same for them, had an amazing time at a pizza restaurant as my first job, where I met some amazing people, I got to grow up knowing these incredible human beings. The greatest part about my life though? That would have to be that my family is still together, we all love each other, we accept each other and we always get together.</p>
+                <section className='header-section'>
+                    <h1 className='portfolio-header'>Cameron Kelly's Portfolio</h1>
                 </section>
-                <p className='tldr'>TLDR: My life has been pretty sweet so far.</p>
-                <h2>SKILLERINO'S</h2>
-                <section className='skills'>
-                    <ul className='skill-section'> <p>THE BASICS</p>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JAVASCRIPT</li>
-                    </ul>
-                    <ul className='skill-section'> <p>THE COOLER STUFF</p>
-                        <li>REACT JS</li>
-                        <li>NODE JS</li>
-                        <li>EXPRESS JS</li>
-                        <li>REACT NATIVE</li>
-                        <li>BCRYPT JS</li>
-                        <li>REACT REDUX</li>
-                        <li>REACT HOOKS</li>
-                        <li>SOCKET.IO</li>
-                    </ul>
-                    <ul className='skill-section'> <p>THE PEOPLE SKILLS</p>
-                        <li>Communication</li>
-                        <li>Team Work</li>
-                        <li>I'm a cool ass guy</li>
-                        <li>Collaborative</li>
-                        <li>I love to make people laugh</li>
-                        <li>Customer Service</li>
-                    </ul>
-                </section>
-                <h2>PROJECTS</h2>
-                <section className='projects'>
-                    <div className='single-project'>
-                        <a href='https://orderofbahamut.com/'>
-                            <h3>Order of Bahamut</h3>
-                        </a>
-                        <iframe className='site-preview' src='https://orderofbahamut.com/'></iframe>
-                        <p></p>
-                    </div>
-                    <div className='single-project'>
-                        <a href='http://www.jam-sessions.live/'>
-                            <h3>Jam Sessions</h3>
-                        </a>
-                        <iframe className='site-preview' src='http://www.jam-sessions.live/'></iframe>
-                        <p></p>
-                    </div>
+                
+                <section className='main-portfolio'>
+                    <h2>About Me</h2>
+                    <section className='about'>
+                        <div className='bio'>
+                            <p>I was born and raised in Utah. I love Video Games, Hard Rock, Guitar, Driving, Biking, Hiking, and of course, programming. I have an adorable old cat named Reeses that I love very much.</p>
+                            <p>Development has been something I have wanted to fully dive into for over a decade. I took some classes in high school but never went anywhere with those. I had an IT job where I had to do some Web Development and I fell in love with it.</p>
+                        </div>
+                        <div className='pictures'>
+                            <div>
+                                <img src='https://lh3.googleusercontent.com/pw/ACtC-3dqp3TVMFo-HSMdY3aXUiuDa6wpEFAxyy4E9qokjLuuWiuPeIrjDtrNPL40ABMp-8a7AKlX1EyOdmDDuKAZKlJLgnPptZq9yZqA4WfCAJsB_bSdoTXuWn92PC6wHKAkc440lYDbAJcfL95rATSzgpl_=w702-h936-no?authuser=0' />
+                            </div>
+                            <div>
+                                <img src='https://lh3.googleusercontent.com/FaEoaKIPxle6BeoJHZWdTWkwtmnvdLtpvLCdE80MIIBYJi6T5nhghx3HHykLwmDTC0_4K2-wupqvHpU4RuRwc3vU1HealtFMjAgBbGRInWX7JFkoUNKZzBNtER2aXEKtVvYa5jln68gBtCQvWCS5s15KepQ22ROvZudWVqcbEGIHPkNiL5vOHko2Ov6laMlkeGrAfUENuO4gLnYx_zbViKvKaychVOi7LIHHCsmTwxXgYYaPTtm6wnnC5NgZnfPMIMwz5B9ZvD7Fs1L1czSEFvLhUqNzkdTYHSfJYlkIjS0mQASBopQXGGPM-AQomLcxuILHrDZfVoprueqKbNWEbbIgRnfvUKf1-3UaQyR2w84ciCNM0n10J-OVscmcY-IybQqnLPsE9CQhqJC_WelW95tsjou9tjUR2ZVSZj0ndyZWF_RhOwRTdk7pk92dEUhyJwzFLA86i4JygCF_qg64JFaXIAtNVe6Fcl6ma19eRywqoc83BCkmUQofq7RqU_Vwx0PkZ_ZwbQ9_aUJKh4hivgjAOZGt6nYl708Hu6keFHcOHdu2XPq0glBW63_wqotAOhQIQlmWr4scesAXZv0IY4OnjUuBrysYd4fQNB6slo2TqDLV9yzFtypaMXzEzI5JP58oOysTs-0EU586sfF_EkkXeGysmZyXPF1tH-juuhmt-ZTBRjkJmxgaetc7=w702-h936-no?authuser=0' />
+                            </div>
+                            <div>
+                                <img src='https://lh3.googleusercontent.com/KDyE2n__IZwo8uS7lZJrXrJvny8GieaNMDdWPZsg3GKVDN_KgZP64gqaY8yZtQAfcaiJOd7OZDfDUCXkJAEHYqOm_6VnmgulX0ST5-8UrwSI4_OrVPbi0XtyTf86SdhE8xwfyYBv-0UtG1cZX_y9NSBbjR20dr6wfn4dc_GvAn_OsOp2eaxYsLGR-hbeK3VBHBrvevsCC3L_ZNWiKzqbNx7-nxWL2d65jtB-8xbreLUHSgEaROj4JQjTAPkO6T7ZPislLfHkzsHDTUr20IU6IKvBQF8T1rX6_V4Sq0LoJ-wDHCvpLYjpoqSnnSCd6qU3lLIi9SuYtsw5nQ4s7684LmtobGEYWngOlm8g2lEzljbrlWXLWO4AfvAzd9LwQnQmhOyjY3CmrgLGeZzQ34eeGCHO-BaEfEc3F9Y21_yzlzZtr887AUc0bEBtrSUzhv6snzsUrurkdMu3a3S9Rt2txF0Ar04Mf56mSmIBXLTN_RsM_XkYUL4DMUWUhXCaXGG6shclT-b1LN6jZiXVRYZk_qPaE5KE3v16o16vFGQ_N-R2jc-9MJ6M9yG2mP1BZw2tJ-s6sNsYjIsaP52JPgcdchuuTGv62kUyE5NkDOHMguM2Ad7pQEIZrzHDG112s2LFFk21L_kfoxvx8uNSLj4BGh-ilidUXSRJ-Ftr2Jjr1tNmOU4zdsSBz0OISld5=w702-h936-no?authuser=0' />
+                            </div>
+                        </div>
+                    </section>
+                    <h2>SKILLERINO'S</h2>
+                    <section className='skills'>
+                        <ul className='skill-section'> <p>THE BASICS</p>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JAVASCRIPT</li>
+                        </ul>
+                        <ul className='skill-section'> <p>THE COOLER STUFF</p>
+                            <li>REACT JS</li>
+                            <li>NODE JS</li>
+                            <li>EXPRESS JS</li>
+                            <li>REACT NATIVE</li>
+                            <li>BCRYPT JS</li>
+                            <li>REACT REDUX</li>
+                            <li>REACT HOOKS</li>
+                            <li>SOCKET.IO</li>
+                        </ul>
+                        <ul className='skill-section'> <p>THE PEOPLE SKILLS</p>
+                            <li>Communication</li>
+                            <li>Team Work</li>
+                            <li>I'm a cool ass guy</li>
+                            <li>Collaborative</li>
+                            <li>I love to make people laugh</li>
+                            <li>Customer Service</li>
+                        </ul>
+                    </section>
+                    <h2>PROJECTS</h2>
+                    <section className='projects'>
+                        <div className='single-project'>
+                            <a href='https://orderofbahamut.com/'>
+                                <h3>Order of Bahamut</h3>
+                            </a>
+                            <iframe className='site-preview' src='https://orderofbahamut.com/'></iframe>
+                            <p></p>
+                        </div>
+                        <div className='single-project'>
+                            <a href='http://www.jam-sessions.live/'>
+                                <h3>Jam Sessions</h3>
+                            </a>
+                            <iframe className='site-preview' src='http://www.jam-sessions.live/'></iframe>
+                            <p></p>
+                        </div>
+                    </section>
                 </section>
             </div>
         </div>
