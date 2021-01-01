@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {connect} from 'react-redux';
-import {changeNavColor, changeBtnColor, changeSideColor} from '../../redux/portfolioReducer';
+import {changeNavColor, changeBtnColor, changeSideColor, changeBackgroundImage} from '../../redux/portfolioReducer';
 import './portfolio.css'
 
 const Portfolio = props => {
@@ -62,6 +62,7 @@ const Portfolio = props => {
         props.changeNavColor('nav-bar-color-2');
         props.changeBtnColor('auth-btn-2');
         props.changeSideColor('side-profile-color-2');
+        props.changeBackgroundImage("url('https://lh3.googleusercontent.com/9WpnICxB4JTooQlEzquyAcH8JAkbdSRjskqO6i2t7O5yLj2jcOEtC7eNB3DqGZAGaoZ9shzE-ckxDl-KoXNDhhnIK4rbyC3QEWu4oC--N7GxxmTxbaJxQcRYjjBHRGB3SJF74jj2bP8gKWPTaIJBETlS4MMbyn0AZtroQ0BVqHASI-scmhSXguTMN7RIztrqcz601vUGAFmY9LBUcA1w3OPJcAiOhSdSPQ0xO47Ek24GxG9RdT2e7YED0B383TXJ8FMVkz1aN3OAdB677zsMxejRlKIIumY1B0j5sQfbsg8XxnM8HdVlNNbdCWRmZ4vSDBKiU0wDR3TZX9Fxx38oH_b_WPqMm7gglhEhPUHVlptW_l0dd_yuyuDEXVCwUdfPyd-t07il6ULlvKyzKzujwB9dinmlO8caQzdFEIrkeruKcOEDoOdxwm28hnOhAf8NQoNuJSfQlneaxBjQa6U8Jsg51VpftibnLGiSZ7JbZttHQu-uyXrIOOdlkWXU6sVDRJZNAU-CYZShBclJ7YgozYTBdOijIDppPDqZDTVziKhZBKoK4WTbX2hFbTD26GH2ROGRkc6GgZXNCJUHBdn7f-wvuR07wFRj2tGcEM-L4TfKx5xGxolS_CwWwav7XKUwlrih0Ds8lGuE0__WYf7ROdKHV2ft0k8iANhzgFKC7sEPLevdzgHIfqMc4Xht=w1248-h936-no?authuser=0')")
     }, [])
 
     return (
@@ -193,4 +194,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, {changeNavColor, changeBtnColor, changeSideColor})(Portfolio);
+export default connect(mapStateToProps, {changeNavColor, changeBtnColor, changeSideColor, changeBackgroundImage})(Portfolio);

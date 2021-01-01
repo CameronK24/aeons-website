@@ -3,7 +3,7 @@ import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {registerUser, loginUser, notRegisteringUser, logoutUser} from '../../redux/authReducer';
 import {storeUserInfo} from '../../redux/userReducer';
-import {changeNavColor, changeBtnColor, changeSideColor} from '../../redux/portfolioReducer';
+import {changeNavColor, changeBtnColor, changeSideColor, changeBackgroundImage} from '../../redux/portfolioReducer';
 import {client} from '../../service/socket';
 import axios from 'axios';
 import logo from '../../images/aeons-logo.png'
@@ -90,6 +90,7 @@ const Nav = props => {
         props.changeNavColor('nav-bar-color-1');
         props.changeBtnColor('auth-btn');
         props.changeSideColor('side-profile-color-1');
+        props.changeBackgroundImage("url('https://i.pinimg.com/originals/a0/de/1d/a0de1dd5d13217683f21e4e525193069.jpg')")
     }
 
     return (
@@ -162,7 +163,7 @@ const Nav = props => {
                                         <button className='nav-btn'>Menu</button>
                                     </section>
                                     <section className='logout-section'>
-                                        <Link to='/'><button className={props.portfolio.buttonColor} onClick={logoutUser}>Logout</button></Link>
+                                        <Link to='/' onClick={changeNavColorClick}><button className={props.portfolio.buttonColor} onClick={logoutUser}>Logout</button></Link>
                                     </section>
                                 </section>
                             </div>
@@ -216,4 +217,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, {registerUser, storeUserInfo, loginUser, notRegisteringUser, logoutUser, changeNavColor, changeBtnColor, changeSideColor})(withRouter(Nav));
+export default connect(mapStateToProps, {registerUser, storeUserInfo, loginUser, notRegisteringUser, logoutUser, changeNavColor, changeBtnColor, changeSideColor, changeBackgroundImage})(withRouter(Nav));

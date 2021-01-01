@@ -9,6 +9,18 @@ import './App.css';
 
 class App extends Component {
 
+  componentDidMount() {
+    document.body.style.backgroundImage = this.props.portfolio.backgroundImage;
+  }
+
+  componentDidUpdate() {
+    document.body.style.backgroundImage = this.props.portfolio.backgroundImage;
+  }
+
+  componentWillUnmount() {
+    document.body.style.backgroundImage = null;
+  }
+
   render() {
     return (
       <div>
@@ -40,7 +52,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth
+    auth: state.auth,
+    portfolio: state.portfolio
   };
 }
 
