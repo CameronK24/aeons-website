@@ -3,6 +3,7 @@ import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {registerUser, loginUser, notRegisteringUser, logoutUser} from '../../redux/authReducer';
 import {storeUserInfo} from '../../redux/userReducer';
+import {changeNavColor, changeBtnColor, changeSideColor} from '../../redux/portfolioReducer';
 import {client} from '../../service/socket';
 import axios from 'axios';
 import logo from '../../images/aeons-logo.png'
@@ -85,13 +86,19 @@ const Nav = props => {
         }
     }
 
+    const changeNavColorClick = () => {
+        props.changeNavColor('nav-bar-color-1');
+        props.changeBtnColor('auth-btn');
+        props.changeSideColor('side-profile-color-1');
+    }
+
     return (
             <div className='site-nav'>
                 {props.auth.loggedIn === false
                     ? (
                         <div className={`nav-bar-1 ${props.portfolio.navBarColor}`}>
                             <div className='nav-bar-content'>
-                                <Link to='/' className='logo-section'>
+                                <Link to='/' className='logo-section' onClick={changeNavColorClick}>
                                     <img src={logo} alt='logo' />
                                     <h1>Order of Bahamut</h1>
                                 </Link>
@@ -107,7 +114,7 @@ const Nav = props => {
                                         </div>
                                     </div>  
                                     <button className={props.portfolio.buttonColor} onClick={loginUser}>Login</button>                
-                                    <Link to='/register'><button className={props.portfolio.buttonColor} onClick={() => props.registerUser()} >Register</button></Link>
+                                    <Link onClick={changeNavColorClick} to='/register'><button className={props.portfolio.buttonColor} onClick={() => props.registerUser()} >Register</button></Link>
                                 </section>
                                 <section className='auth-box-mobile'>
                                     <button className={`${props.portfolio.buttonColor} auth-btn mobile-login`} onClick={toggleMobileLogin}>Login</button>                
@@ -137,14 +144,14 @@ const Nav = props => {
                         <div>
                             <div className={`nav-bar-2 ${props.portfolio.navBarColor}`}>
                                 <section className='nav-bar-content'>
-                                    <Link to='/home' className='logo-section logo-section-2'>
+                                    <Link to='/home' onClick={changeNavColorClick} className='logo-section logo-section-2'>
                                         <img src={logo} alt='logo' />
                                         <h1>Order of Bahamut</h1>
                                     </Link>
                                     <section className='nav-area nav-area-2'>
-                                        <Link to='/home'><button className='nav-btn'>Home</button></Link>
-                                        <Link to='/members'><button className='nav-btn'>Members</button></Link>
-                                        <Link to='/events'><button className='nav-btn'>Events</button></Link>
+                                        <Link to='/home' onClick={changeNavColorClick}><button className='nav-btn'>Home</button></Link>
+                                        <Link to='/members' onClick={changeNavColorClick}><button className='nav-btn'>Members</button></Link>
+                                        <Link to='/events' onClick={changeNavColorClick}><button className='nav-btn'>Events</button></Link>
                                     </section>
                                     <section className='mobile-nav-button' onClick={toggleMobileNav}>
                                         <div className='mobile-menu-graphic'>
@@ -161,13 +168,13 @@ const Nav = props => {
                             </div>
                             <section className={`side-profile ${props.portfolio.sideProfileColor}`}>
                                 <section className='character-small-profile'>
-                                    <Link to={`/profile/${props.user.userId}`}><img src={props.user.avatar} alt='avatar' />
+                                    <Link to={`/profile/${props.user.userId}`} onClick={changeNavColorClick}><img src={props.user.avatar} alt='avatar' />
                                     <h3>{props.user.characterName} </h3></Link>
                                 </section>
                                 <section className='new-content'>
-                                    <Link to='/post/new-post'><ion-icon name='newspaper-outline'></ion-icon>
+                                    <Link to='/post/new-post' onClick={changeNavColorClick}><ion-icon name='newspaper-outline'></ion-icon>
                                     <p>New Post</p></Link>
-                                    <Link to='/events/new-event'><ion-icon name="calendar-outline"></ion-icon>
+                                    <Link to='/events/new-event' onClick={changeNavColorClick}><ion-icon name="calendar-outline"></ion-icon>
                                     <p>New Event</p></Link>
                                 </section>
                                 <section className='version'>
@@ -180,15 +187,16 @@ const Nav = props => {
                             </section>
                             {mobileNav === true
                             ? 
-                                <section className={mobileMenuClass}>
+                                <section className={mobileMenuClass + ' ' + props.portfolio.navBarColor}>
                                     <ul className='mobile-nav-list'>
-                                        <Link to='/home'><li className='nav-btn' onClick={toggleMobileNav}>Home</li></Link>
-                                        <Link to='/members'><li className='nav-btn' onClick={toggleMobileNav}>Members</li></Link>
-                                        <Link to='/events'><li className='nav-btn' onClick={toggleMobileNav}>Events</li></Link>
-                                        <Link to='/post/new-post'><li className='nav-btn' onClick={toggleMobileNav}>New Post</li></Link>
-                                        <Link to='/events/new-event'><li className='nav-btn' onClick={toggleMobileNav}>New Event</li></Link>
-                                        <Link to={`/profile/${props.user.userId}`}><li className='nav-btn' onClick={toggleMobileNav}>Profile</li></Link>
-                                        <Link to='/'><li className='auth-btn' onClick={logoutUser}>Logout</li></Link>
+                                        <Link to='/home' onClick={changeNavColorClick}><li className='nav-btn' onClick={toggleMobileNav}>Home</li></Link>
+                                        <Link to='/members' onClick={changeNavColorClick}><li className='nav-btn' onClick={toggleMobileNav}>Members</li></Link>
+                                        <Link to='/events' onClick={changeNavColorClick}><li className='nav-btn' onClick={toggleMobileNav}>Events</li></Link>
+                                        <Link to='/post/new-post' onClick={changeNavColorClick}><li className='nav-btn' onClick={toggleMobileNav}>New Post</li></Link>
+                                        <Link to='/events/new-event' onClick={changeNavColorClick}><li className='nav-btn' onClick={toggleMobileNav}>New Event</li></Link>
+                                        <Link to={`/profile/${props.user.userId}`} onClick={changeNavColorClick}><li className='nav-btn' onClick={toggleMobileNav}>Profile</li></Link>
+                                        <Link to='/portfolio' onClick={changeNavColorClick}><li className='nav-btn' onClick={toggleMobileNav}>Portfolio</li></Link>
+                                        <Link to='/' onClick={changeNavColorClick}><li className='auth-btn' onClick={logoutUser}>Logout</li></Link>
                                     </ul>
                                 </section>
                             : null
@@ -208,4 +216,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, {registerUser, storeUserInfo, loginUser, notRegisteringUser, logoutUser})(withRouter(Nav));
+export default connect(mapStateToProps, {registerUser, storeUserInfo, loginUser, notRegisteringUser, logoutUser, changeNavColor, changeBtnColor, changeSideColor})(withRouter(Nav));

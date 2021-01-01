@@ -5,11 +5,11 @@
 
 .nav-bar-color-1 {
     background-color: #368dbe;
-    box-shadow: 0px 20px 30px #000000;
+    box-shadow: -10px 3px 20px #000000;
 }
 
 .nav-bar-color-2 {
-    background-color: #686868;
+    background-color: #464646bb;
     box-shadow: -10px 3px 20px #000000;
 }
 
@@ -21,10 +21,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 .nav-bar-2 {
-    z-index: 9;
+    z-index: 10;
     width: 100vw;
     height: 75px;
     color: #ffffff;
@@ -142,10 +143,10 @@
 
 .side-profile {
     position: absolute;
-    z-index: 10;
+    z-index: 5;
     width: 125px;
     height: 100vh;
-    box-shadow: 20px 30px 30px #000000;
+    box-shadow: 5px 10px 30px #000000;
 }
 
 .side-profile-color-1 {
@@ -154,8 +155,7 @@
 }
 
 .side-profile-color-2 {
-    background-color: #686868;
-    background: linear-gradient(0deg,rgb(104, 104, 104, 1) 100%, rgb(156, 156, 156) 0%);
+    background-color: #464646bb;
 }
 
 .character-small-profile {
@@ -383,16 +383,6 @@
 
     .mobile-nav-menu {
         display: none;
-        right: 0;
-        width: 175px;
-        height: 0px;
-        padding: 10px;
-        background-color: #368dbe;
-        color: #ffffff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0px 20px 30px #000000;
         transition: .25s;
     }
 
@@ -402,7 +392,6 @@
         width: 175px;
         height: auto;
         padding: 10px;
-        background-color: #368dbe;
         color: #ffffff;
         display: flex;
         justify-content: center;
