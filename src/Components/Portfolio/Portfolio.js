@@ -41,13 +41,6 @@ const Portfolio = props => {
     }
 
     useEffect(() => {
-        if (window.scrollX === 200) {
-            console.log('peepee');
-            console.log(aboutRef.current);
-        }
-    })
-
-    useEffect(() => {
         let dots = document.getElementsByClassName('dot');
         let slides = document.getElementsByClassName('my-slides');
         for (let x = 0; x < dots.length; x++) {
@@ -71,6 +64,7 @@ const Portfolio = props => {
                 <section className='header-section'>
                     <h1 className='portfolio-header'>Cameron Kelly's Portfolio</h1>
                 </section>
+
                 <section className={navStyle}>
                     <h3 onClick={() => refScroll(aboutRef)}>About</h3>
                     <div></div>
@@ -80,8 +74,8 @@ const Portfolio = props => {
                 </section>
                 
                 <section className='main-portfolio'>
-                    <h2>About Me</h2>
-                    <section ref={aboutRef} className='about'>
+                    <h2 ref={aboutRef}>About Me</h2>
+                    <section className='about'>
                         <div className='bio'>
                             <p>I was born and raised in Utah. I love Video Games, Hard Rock, Guitar, Driving, Biking, Hiking, and of course, Programming. I have an adorable old cat named Reeses that I love very much.</p>
                             <p>Development has been something I have wanted to fully dive into for over a decade. I took some classes in high school but never went anywhere with those. I had an IT job where I had to do some Web Development and I fell in love with it. Now I create awesome websites like this one.</p>
@@ -92,7 +86,7 @@ const Portfolio = props => {
                             </div>
                         </div>
                     </section>
-                    <section className='slideshow pictures'>
+                    <section className='slideshow'>
                         <div className='number-text'>{slideIndex + 1} / {images.length}</div>
                         <div className='my-slides fade'>
                             <img src={images[0]} />
@@ -139,8 +133,8 @@ const Portfolio = props => {
                             <span className='dot' onClick={() => dotSelect(7)}></span>
                         </section>
                     </section>
-                    <h2>SKILLERINO'S</h2>
-                    <section ref={skillsRef} className='skills'>
+                    <h2 ref={skillsRef}>SKILLERINO'S</h2>
+                    <section className='skills'>
                         <ul className='skill-section'> <p>THE BASICS</p>
                             <li>HTML</li>
                             <li>CSS</li>
@@ -165,8 +159,8 @@ const Portfolio = props => {
                             <li>Customer Service</li>
                         </ul>
                     </section>
-                    <h2>PROJECTS</h2>
-                    <section ref={projectsRef} className='projects'>
+                    <h2 ref={projectsRef}>PROJECTS</h2>
+                    <section className='projects'>
                         <div className='single-project'>
                             <a href='https://orderofbahamut.com/'>
                                 <h3>Order of Bahamut</h3>

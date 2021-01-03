@@ -2,11 +2,6 @@
     position: absolute;
     width: 100%;
     height: auto;
-    /* background-image: url('https://lh3.googleusercontent.com/9WpnICxB4JTooQlEzquyAcH8JAkbdSRjskqO6i2t7O5yLj2jcOEtC7eNB3DqGZAGaoZ9shzE-ckxDl-KoXNDhhnIK4rbyC3QEWu4oC--N7GxxmTxbaJxQcRYjjBHRGB3SJF74jj2bP8gKWPTaIJBETlS4MMbyn0AZtroQ0BVqHASI-scmhSXguTMN7RIztrqcz601vUGAFmY9LBUcA1w3OPJcAiOhSdSPQ0xO47Ek24GxG9RdT2e7YED0B383TXJ8FMVkz1aN3OAdB677zsMxejRlKIIumY1B0j5sQfbsg8XxnM8HdVlNNbdCWRmZ4vSDBKiU0wDR3TZX9Fxx38oH_b_WPqMm7gglhEhPUHVlptW_l0dd_yuyuDEXVCwUdfPyd-t07il6ULlvKyzKzujwB9dinmlO8caQzdFEIrkeruKcOEDoOdxwm28hnOhAf8NQoNuJSfQlneaxBjQa6U8Jsg51VpftibnLGiSZ7JbZttHQu-uyXrIOOdlkWXU6sVDRJZNAU-CYZShBclJ7YgozYTBdOijIDppPDqZDTVziKhZBKoK4WTbX2hFbTD26GH2ROGRkc6GgZXNCJUHBdn7f-wvuR07wFRj2tGcEM-L4TfKx5xGxolS_CwWwav7XKUwlrih0Ds8lGuE0__WYf7ROdKHV2ft0k8iANhzgFKC7sEPLevdzgHIfqMc4Xht=w1248-h936-no?authuser=0');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;    */
     margin: -5% 0 0 -15%;
     padding-bottom: 5%;
     display: flex;
@@ -14,7 +9,7 @@
 }
 
 .portfolio-view {
-    margin-top: 5%;
+    /* margin-top: 5%; */
     width: 100%;
     height: auto;
     display: flex;
@@ -24,16 +19,15 @@
 
 .header-section {
     width: 100%;
-    height: 20vh;
-    margin-top: 15%;
+    height: 100vh;
+    position: absolute;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 }
 
 .portfolio-header {
     width: 100%;
-    /* margin-bottom: 10%; */
     text-align: center;
     font-size: 100px;
     font-family: 'Lobster', cursive;
@@ -42,17 +36,18 @@
 
 .portfolio-nav {
     position: sticky;
-    top: 8%;
+    top: 75px;
     display: flex;
     width: 50%;
     height: 70px;
+    margin-top: 60vh;
+    margin-bottom: 40vh;
     justify-content: space-evenly;
     align-items: center;
     font-size: 40px;
     font-family: 'Lobster', cursive;
     background-color: #464646bb;
     text-shadow: 7px 7px 1px #000000cb;
-    margin-bottom: 20%;
     border-radius: 0 0 10px 10px;
     z-index: 10;
     box-shadow: 0 15px 30px #000000;
@@ -150,12 +145,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    box-shadow: 0px 0px 10px #000000;
+    box-shadow: 0px 0px 15px inset #000000;
     border-radius: 10px;
 }
 
 .my-slides {
-    margin-top: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,11 +157,16 @@
 }
 
 .my-slides img {
-    max-width: 90%;
+    width: 90%;
     height: 100%;
-    object-fit: fill;
-    box-shadow: 0px 0px 10px #000000;
+    object-fit: contain;
     border-radius: 10px;
+}
+
+.active-slide {
+    width: 100%;
+    height: 87%;
+    display: flex;
 }
 
 .prev, .next {
@@ -217,6 +216,8 @@
 
 .slide-dots {
     width: 100%;
+    top: 95%;
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -234,12 +235,6 @@
 
 .active, .dot:hover {
     background-color: #717171;
-}
-
-.active-slide {
-    width: 100%;
-    height: 500px;
-    display: flex;
 }
 
 .fade {
@@ -265,7 +260,7 @@
     justify-content: space-evenly;
 }
 
-.skills ul {
+.skill-section {
     text-align: center;
     background-color: #f1f1f1;
     box-shadow: 0px 0px 10px #000000;
@@ -277,20 +272,21 @@
     align-items: center;
 }
 
-.skills ul p {
+.skill-section p {
     font-size: 30px;
     font-weight: 600;
     border-bottom: 2px solid #3f3f3f;
     width: 95%;
 }
 
-.skills ul li {
+.skill-section li {
     font-size: 20px;
     margin-top: 3%;
 }
 
 .projects {
     width: 95%;
+    height: auto;
     display: flex;
     justify-content: space-evenly;
 }
@@ -332,6 +328,180 @@
     border: 2px solid #888888;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1400px) {
+    .main-portfolio {
+        width: 90%;
+    }
+}
 
+@media screen and (max-width: 1000px) {
+    .portfolio-page {
+        margin: -5% 0 0 -5%;
+    }
+
+    .portfolio-header {
+        font-size: 75px;
+    }
+
+    .portfolio-nav {
+        width: 70%;
+    }
+
+    .portfolio-nav div {
+        height: 15px;
+        width: 15px;
+    }
+
+    .main-portfolio {
+        width: 95%;
+    }
+
+    .slideshow {
+        height: 475px;
+    }
+
+    .skills {
+        justify-content: space-between;
+    }
+
+    .skill-section {
+        width: 30%;
+    }
+
+    .single-project {
+        width: 45%;
+        height: 460px;
+    }
+
+    .site-preview {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .portfolio-nav {
+        width: 80%;
+        margin-top: 67vh;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .portfolio-page {
+        margin: -15% 0 0 -2%;
+    }
+
+    .portfolio-header {
+        font-size: 60px;
+    }
+
+    .portfolio-nav {
+        height: 50px;
+        margin-top: 60vh;
+    }
+
+    .main-portfolio h2 {
+        font-size: 45px;
+    }
+
+    .about p {
+        font-size: 18px;
+    }
+
+    .slideshow {
+        height: 375px;
+    }
+
+    .skills {
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .skill-section {
+        padding-bottom: 5px;
+        height: auto;
+    }
+
+    .skill-section p {
+        font-size: 20px;
+    }
+
+    .skill-section li {
+        font-size: 16px;
+    }
+
+    .projects {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .single-project {
+        width: 70%;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .portfolio-nav {
+        width: 95%;
+        margin-top: 62vh;
+        font-size: 32px;
+    }
+
+    .portfolio-nav div {
+        width: 10px;
+        height: 10px;
+    }
+
+    .slide-dots {
+        top: 94%;
+    }
+
+    .dot {
+        margin: 0 3%;
+        height: 20px;
+        width: 20px;
+    }
+
+    .skills {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-section {
+        width: 80%;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    .skill-section p {
+        font-size: 26px;
+    }
+
+    .skill-section li {
+        font-size: 20px;
+    }
+
+    .single-project {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .portfolio-page {
+        margin: -15% 0 0 0;
+    }
+
+    .header-section {
+        /* width: 100vw; */
+    }
+
+    .portfolio-header {
+        font-size: 40px;
+    }
+
+    .portfolio-nav {
+        font-size: 30px;
+        margin-top: 60vh;
+    }
 }
