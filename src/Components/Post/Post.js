@@ -76,37 +76,44 @@ const Post = props => {
     const [redirect, setRedirect] = useState(false);
 
     return (
-        <Switch>
-            {redirect !== true
-            ? <div className='create-post-box'>
-                <input className='title-box' placeholder='Title of post. 100 character limit' maxLength='100' value={title} onChange={e => setTitle(e.target.value)} />
-                {image
-                ? <img className='image-preview' src={image} alt='Image Preview' />
-                :null
-                }
-                
-                <div className='drop-box' {...getRootProps()}>
-                    {isUploading
-                    ? <ClipLoader color={'#ffffff'} />
-                    : <div className='drop-input'>
-                        <input {...getInputProps()}/>
-                        <p>Drag 'n' drop or click to upload an image.</p>
+        <div>
+            {props.auth.loggedIn === true
+            ?
+                <Switch>
+                    {redirect !== true
+                    ? <div className='create-post-box'>
+                        <input className='title-box' placeholder='Title of post. 100 character limit' maxLength='100' value={title} onChange={e => setTitle(e.target.value)} />
+                        {image
+                        ? <img className='image-preview' src={image} alt='Image Preview' />
+                        :null
+                        }
+                        
+                        <div className='drop-box' {...getRootProps()}>
+                            {isUploading
+                            ? <ClipLoader color={'#ffffff'} />
+                            : <div className='drop-input'>
+                                <input {...getInputProps()}/>
+                                <p>Drag 'n' drop or click to upload an image.</p>
+                            </div>
+                            }
+                        </div>
+                        <textarea className='long-text-box' placeholder='Post text. 400 character limit' maxLength='400' value={content} onChange={e => setContent(e.target.value)} ></textarea>
+                        <button className='create-post-btn' onClick={() => createPost(props.user.userId)}>Post</button>
                     </div>
+                    : <Redirect to='/home'/>
                     }
-                </div>
-                <textarea className='long-text-box' placeholder='Post text. 400 character limit' maxLength='400' value={content} onChange={e => setContent(e.target.value)} ></textarea>
-                <button className='create-post-btn' onClick={() => createPost(props.user.userId)}>Post</button>
-            </div>
-            : <Redirect to='/home'/>
+                </Switch>
+            : <Redirect to='/' />
             }
-            
-        </Switch>
+        </div>
+        
     )
 }
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+        user: state.user,
+        auth: state.auth
     };
 }
 

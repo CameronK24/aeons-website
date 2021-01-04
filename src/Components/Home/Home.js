@@ -3,7 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {changeNavColor, changeBtnColor, changeSideColor} from '../../redux/portfolioReducer';
 import {ClipLoader} from 'react-spinners';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import './home.css';
 
 const Home = props => {
@@ -45,20 +45,33 @@ const Home = props => {
     }, [posts]);
 
     return (
-        <div className='home-view'>
-            {loadingPosts !== true
-            ? <div className='mapped-posts'>
-                {mappedPosts}
+        <div>
+            {props.auth.loggedIn === true
+            ?<div className='home-view'>
+                {loadingPosts !== true
+                ? <div className='mapped-posts'>
+                    {mappedPosts}
+                </div>
+                : <ClipLoader 
+                    className='loader' 
+                    size={300}
+                    color={'#ffffff'}
+                    css={'position: absolute; left: 47%; top: 50%; transform: translate(-50%, -50%);'}/>
+                }
             </div>
-            : <ClipLoader 
-                className='loader' 
-                size={300}
-                color={'#ffffff'}
-                css={'position: absolute; left: 47%; top: 50%; transform: translate(-50%, -50%);'}/>
+            :<div>
+                <Redirect to='/' />
+            </div>
             }
-            
         </div>
+        
     )
 }
 
-export default connect(null, {changeNavColor, changeBtnColor, changeSideColor})(Home);
+function mapStateToProps(state) {
+    return {
+        auth: state.auth,
+    };
+}
+
+export default connect(mapStateToProps, {changeNavColor, changeBtnColor, changeSideColor})(Home);

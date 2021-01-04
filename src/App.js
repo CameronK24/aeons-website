@@ -6,6 +6,7 @@ import {Redirect} from 'react-router-dom';
 import Chat from './Components/Chat/Chat';
 import './reset.css';
 import './App.css';
+import background from './images/IMG_20190624_161724.jpg'
 
 class App extends Component {
 
@@ -27,18 +28,16 @@ class App extends Component {
         {this.props.auth.register === false
         ? <div className='main-view'>
             <Nav />
-            {this.props.auth.loggedIn === true
-            ?
-              <div className='page-view'>
+            <div className='page-view'>
+              {this.props.auth.loggedIn === true
+              ?
+              <div >
                 <Chat />
-                {routes}
               </div>
-            : 
-              <div className='page-view'>
-                <Redirect to='/' />
-                {routes}
-              </div>
-            }
+              : null
+              }
+              {routes}
+            </div>         
           </div>
         : <div>
             {routes}

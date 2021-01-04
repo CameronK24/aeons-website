@@ -84,60 +84,68 @@ const Events = props => {
     }, [events])
 
     return (
-        <Switch>
-            {isLoading !== true
+        <div>
+            {props.auth.loggedIn === true
             ?
-                <div className='events-page-view'>
-                    {props.location.pathname === '/events/new-event'
+                <Switch>
+                    {isLoading !== true
                     ?
                         <div className='events-page-view'>
-                            {redirect !== true
+                            {props.location.pathname === '/events/new-event'
                             ?
-                                <div className='events-page-view-inner'>
-                                    <div className='new-event-page'>
-                                        <section className='text-fields'>
-                                            <h1>Event Title:</h1>
-                                            <h1>Event Date:</h1>
-                                            <h1>Event Time:</h1>
-                                            <h1>Event Details:</h1>
-                                        </section>
-                                        <section className='input-fields'>
-                                            <input maxLength='75' placeholder='Max 75 characters' onChange={e => setTitle(e.target.value)} value={title} />
-                                            <input type='date' min={currentDate} onChange={e => setDate(e.target.value)} value={date} />
-                                            <section className='time-section'>
-                                                <input className='time' type='time' onChange={e => setTime(e.target.value)} value={time} />
-                                                <h1 className='time-zone-text'>Time Zone:</h1>
-                                                <div>
-                                                    <h1 className='tz'>TZ:</h1>
-                                                    <input className='time-zone' placeholder='Example: PST' onChange={e => setTZ(e.target.value)} value={tz} />
-                                                </div>
-                                            </section>
-                                            <textarea onChange={e => setDetails(e.target.value)} value={details} ></textarea>
-                                        </section>
-                                    </div>
-                                    <button className='submit-event-btn' disabled={allowCreate} onClick={() => createEvent(props.user.userId)}>Create Event</button>
+                                <div className='events-page-view'>
+                                    {redirect !== true
+                                    ?
+                                        <div className='events-page-view-inner'>
+                                            <div className='new-event-page'>
+                                                <section className='text-fields'>
+                                                    <h1>Event Title:</h1>
+                                                    <h1>Event Date:</h1>
+                                                    <h1>Event Time:</h1>
+                                                    <h1>Event Details:</h1>
+                                                </section>
+                                                <section className='input-fields'>
+                                                    <input maxLength='75' placeholder='Max 75 characters' onChange={e => setTitle(e.target.value)} value={title} />
+                                                    <input type='date' min={currentDate} onChange={e => setDate(e.target.value)} value={date} />
+                                                    <section className='time-section'>
+                                                        <input className='time' type='time' onChange={e => setTime(e.target.value)} value={time} />
+                                                        <h1 className='time-zone-text'>Time Zone:</h1>
+                                                        <div>
+                                                            <h1 className='tz'>TZ:</h1>
+                                                            <input className='time-zone' placeholder='Example: PST' onChange={e => setTZ(e.target.value)} value={tz} />
+                                                        </div>
+                                                    </section>
+                                                    <textarea onChange={e => setDetails(e.target.value)} value={details} ></textarea>
+                                                </section>
+                                            </div>
+                                            <button className='submit-event-btn' disabled={allowCreate} onClick={() => createEvent(props.user.userId)}>Create Event</button>
+                                        </div>
+                                    : <Redirect to='/events' />
+                                    }
                                 </div>
-                            : <Redirect to='/events' />
+                            : 
+                                <div className='events-page'>                          
+                                    {mappedEvents}
+                                </div>
                             }
                         </div>
-                    : 
-                        <div className='events-page'>                          
-                            {mappedEvents}
-                        </div>
-                    }
-                </div>
-            : <ClipLoader
-                size={200}
-                color={'#ffffff'} 
-                css={'position: static; margin-left: 50%; margin-top: 25%; transform: translate(-50%, -50%)'} />
-            }       
-        </Switch>
+                    : <ClipLoader
+                        size={200}
+                        color={'#ffffff'} 
+                        css={'position: static; margin-left: 50%; margin-top: 25%; transform: translate(-50%, -50%)'} />
+                    }       
+                </Switch>
+            : <Redirect to='/'/>
+            }
+        </div>
+        
     )
 }
 
 function mapStateToProps(state) {
     return {
-        user: state.user
+        user: state.user,
+        auth: state.auth
     };
 }
 

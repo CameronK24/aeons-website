@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
 import {ClipLoader} from 'react-spinners';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import './members.css';
 
-const Members = () => {
+const Members = props => {
     const [users, setUsers] = useState([]);
     const [mappedUsers, setMappedUsers] = useState([]);
     const [loadingUsers, setLoadingUsers] = useState(true);
@@ -32,20 +33,34 @@ const Members = () => {
     }, [users]);
 
     return (
-        <div className='member-view'>
-            {loadingUsers !== true
-            ? <div className='mapped-users'>
-                {mappedUsers}
+        <div>
+            {props.auth.loggedIn === true
+            ?<div className='member-view'>
+                {loadingUsers !== true
+                ? <div className='mapped-users'>
+                    {mappedUsers}
+                </div>
+                : <ClipLoader 
+                    className='loader' 
+                    size={300}
+                    color={'#ffffff'}
+                    css={'position: absolute; left: 47%; top: 50%; transform: translate(-50%, -50%);'}/>
+                }
+                
             </div>
-            : <ClipLoader 
-                className='loader' 
-                size={300}
-                color={'#ffffff'}
-                css={'position: absolute; left: 47%; top: 50%; transform: translate(-50%, -50%);'}/>
+            :<div>
+                <Redirect to='/' />
+            </div>
             }
-            
         </div>
+        
     )
 }
 
-export default Members;
+function mapStateToProps(state) {
+    return {
+        auth: state.auth,
+    };
+}
+
+export default connect(mapStateToProps)(Members);
